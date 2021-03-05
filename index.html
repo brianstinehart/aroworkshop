@@ -329,28 +329,38 @@
 
             <h3 id="azure-subscription-and-azure-red-hat-openshift-environment">Azure subscription and Azure Red Hat OpenShift environment</h3>
 
-<details>
-  <summary>Click to expand!</summary>
+<!-- Begin collapsible container div -->
+<div class="collapsible-content-container">
+  <!-- Begin collapsible container button -->
+  <button class="toggle-collapsible">Toggle</button>
+  <!-- Begin collapsible container content div -->
+  <div class="collapsible-content">
+    <!-- Begin parsedText -->
+    
+<p>If you have been provided with a Microsoft Hands-on Labs environment for this workshop through a registration link and an activation code, please continue to registration and activate the lab.</p>
 
-If you have been provided with a Microsoft Hands-on Labs environment for this workshop through a registration link and an activation code, please continue to registration and activate the lab.
+<p><img src="media/managedlab/0-registration.png" alt="Registration" /></p>
 
-![Registration](media/managedlab/0-registration.png)
+<p>After you complete the registration, click Launch Lab</p>
 
-After you complete the registration, click Launch Lab
+<p><img src="media/managedlab/1-launchlab.png" alt="Launch lab" /></p>
 
-![Launch lab](media/managedlab/1-launchlab.png)
+<p>The Azure subscription and associated lab credentials will be provisioned. This will take a few moments. This process will also provision an Azure Red Hat OpenShift cluster.</p>
 
-The Azure subscription and associated lab credentials will be provisioned. This will take a few moments. This process will also provision an Azure Red Hat OpenShift cluster.
+<p><img src="media/managedlab/2-preparinglab.png" alt="Preparing lab" /></p>
 
-![Preparing lab](media/managedlab/2-preparinglab.png)
+<p>Once the environment is provisioned, a screen with all the appropriate lab credentials will be presented. Additionally, you’ll have your Azure Red Hat OpenShift cluster endpoint. The credentials will also be emailed to the email address entered at registration.</p>
 
-Once the environment is provisioned, a screen with all the appropriate lab credentials will be presented. Additionally, you'll have your Azure Red Hat OpenShift cluster endpoint. The credentials will also be emailed to the email address entered at registration.
+<p><img src="media/managedlab/3-credentials.png" alt="Credentials" /></p>
 
-![Credentials](media/managedlab/3-credentials.png)
+<p>You can now skip the <strong>Create cluster</strong> section and jump to <a href="#createproject">create project</a>.</p>
 
-You can now skip the **Create cluster** section and jump to [create project](#createproject).
 
-</details>
+    <!-- End parsedText -->
+  </div>
+  <!-- End collapsible container content div -->
+</div>
+<!-- End collapsible container div -->
 
 <h3 id="tools">Tools</h3>
 
@@ -993,7 +1003,7 @@ If you choose to specify a custom domain, for example <strong>foo.example.com</s
   <p><strong>Note</strong> Make sure you complete the <a href="#prereq">prerequisites</a> to install the OpenShift CLI on the Azure Cloud Shell.</p>
 </blockquote>
 
-<p>Once you’re logged into the Web Console, click on the username on the top right, then click <strong>Copy login command</strong>.</p>
+<p>Once you’re logged into the Web Console, click on the username on the top right, then click <strong>Copy Login Command</strong>.</p>
 
 <p><img src="media/login-command.png" alt="Copy login command link" /></p>
 
@@ -1054,7 +1064,7 @@ If you choose to specify a custom domain, for example <strong>foo.example.com</s
                     <h2>Deploy MongoDB</h2>
                 
 
-            <h3 id="create-mongodb-from-template">Create mongoDB from template</h3>
+            <h3 id="create-mongodb-from-template">Create MongoDB from template</h3>
 
 <!-- Begin collapsible container div -->
 <div class="collapsible-content-container">
@@ -1083,7 +1093,7 @@ If you choose to specify a custom domain, for example <strong>foo.example.com</s
 </code></pre></div>  </div>
 </blockquote>
 
-<p>Create a mongoDB deployment using the <code class="language-plaintext highlighter-rouge">mongodb-persistent</code> template. You’re passing in the values to be replaced (username, password and database) which generates a YAML/JSON file. You then pipe it to the <code class="language-plaintext highlighter-rouge">oc create</code> command.</p>
+<p>Create a MongoDB deployment using the <code class="language-plaintext highlighter-rouge">mongodb-persistent</code> template. You’re passing in the values to be replaced (username, password and database) which generates a YAML/JSON file. You then pipe it to the <code class="language-plaintext highlighter-rouge">oc create</code> command.</p>
 
 <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>oc process openshift//mongodb-persistent <span class="se">\</span>
     <span class="nt">-p</span> <span class="nv">MONGODB_USER</span><span class="o">=</span>ratingsuser <span class="se">\</span>
@@ -1092,7 +1102,7 @@ If you choose to specify a custom domain, for example <strong>foo.example.com</s
     <span class="nt">-p</span> <span class="nv">MONGODB_ADMIN_PASSWORD</span><span class="o">=</span>ratingspassword | oc create <span class="nt">-f</span> -
 </code></pre></div></div>
 
-<p>If you now head back to the web console, you should see a new deployment for mongoDB.</p>
+<p>If you now head back to the web console and navigate to <strong>Workloads &gt; Deployment Configs</strong>, you should see a new entry for mongoDB. Make sure you select <strong>Project: workshop</strong> near the top of the page as well, if you have not already done so.</p>
 
 <p><img src="media/mongodb-overview.png" alt="MongoDB deployment" /></p>
 
@@ -1103,7 +1113,7 @@ If you choose to specify a custom domain, for example <strong>foo.example.com</s
 </div>
 <!-- End collapsible container div -->
 
-<h3 id="verify-if-the-mongodb-pod-was-created-successfully">Verify if the mongoDB pod was created successfully</h3>
+<h3 id="verify-if-the-mongodb-pod-was-created-successfully">Verify if the MongoDB pod was created successfully</h3>
 
 <!-- Begin collapsible container div -->
 <div class="collapsible-content-container">
@@ -1127,7 +1137,7 @@ If you choose to specify a custom domain, for example <strong>foo.example.com</s
 </div>
 <!-- End collapsible container div -->
 
-<h3 id="retrieve-mongodb-service-hostname">Retrieve mongoDB service hostname</h3>
+<h3 id="retrieve-mongodb-service-hostname">Retrieve MongoDB service hostname</h3>
 
 <!-- Begin collapsible container div -->
 <div class="collapsible-content-container">
@@ -1137,7 +1147,7 @@ If you choose to specify a custom domain, for example <strong>foo.example.com</s
   <div class="collapsible-content">
     <!-- Begin parsedText -->
     
-<p>Find the mongoDB service.</p>
+<p>Find the MongoDB service.</p>
 
 <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>oc get svc mongodb
 </code></pre></div></div>
@@ -1146,7 +1156,7 @@ If you choose to specify a custom domain, for example <strong>foo.example.com</s
 
 <p>The service will be accessible at the following DNS name: <code class="language-plaintext highlighter-rouge">mongodb.workshop.svc.cluster.local</code> which is formed of <code class="language-plaintext highlighter-rouge">[service name].[project name].svc.cluster.local</code>. This resolves only within the cluster.</p>
 
-<p>You can also retrieve this from the web console. You’ll need this hostname to configure the <code class="language-plaintext highlighter-rouge">rating-api</code>.</p>
+<p>You can also retrieve this from the web console by going to **. You’ll need this hostname to configure the <code class="language-plaintext highlighter-rouge">rating-api</code>.</p>
 
 <p><img src="media/mongo-svc-webconsole.png" alt="MongoDB service in the Web Console" /></p>
 
