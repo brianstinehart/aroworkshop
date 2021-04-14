@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-<title>Brian's OCP Monster</title>
+<title>Red Hat OCP Workshop</title>
 <meta name="viewport" content="width=device-width">
 <meta name="author" content="brianstinehart">
 <link rel="stylesheet" href="css/main.css">
@@ -135,7 +135,7 @@
                     </li>
                 
                     <li >
-                        <a href="#createcluster">Create cluster</a>
+                        <a href="#createcluster">Cluster Access</a>
                         
                     </li>
                 
@@ -175,7 +175,7 @@
                 
                 
                     <li >
-                        <a href="#lab2-HPA">Autoscaling</a>
+                        <a href="#lab2-appoverview">Application Overview</a>
                         
                     </li>
                 
@@ -185,7 +185,7 @@
                     </li>
                 
                     <li >
-                        <a href="#lab2-logging">Logging and Metrics</a>
+                        <a href="#lab2-logging">Logging</a>
                         
                     </li>
                 
@@ -210,7 +210,7 @@
                     </li>
                 
                     <li >
-                        <a href="#lab2-appoverview">Application Overview</a>
+                        <a href="#lab2-HPA">Autoscaling</a>
                         
                     </li>
                 
@@ -219,37 +219,7 @@
     </li>
     
     <li  class="parent">
-        <a href="#lab-cicd">Lab 3 - CI/CD</a>
-        
-            <ul>
-                
-                
-                    <li >
-                        <a href="#lab3-cdcd-demo-overview">CI/CD Demo Overview</a>
-                        
-                    </li>
-                
-                    <li >
-                        <a href="#lab3-deploy-cdcd-demo">Deploy CI/CD Demo</a>
-                        
-                    </li>
-                
-                    <li >
-                        <a href="#lab3-run_cicd_pipeline">Run CI/CD Pipeline</a>
-                        
-                    </li>
-                
-                    <li >
-                        <a href="#lab3-cloud-native-ide">Cloud Native IDE</a>
-                        
-                    </li>
-                
-            </ul>
-        
-    </li>
-    
-    <li  class="parent">
-        <a href="#contributors">Red Hat OpenShift Workshop</a>
+        <a href="#contributors">Contributors</a>
         
             <ul>
                 
@@ -258,15 +228,12 @@
         
     </li>
     
-    <li>
-      <a class="parent" href="https://privacy.microsoft.com">Privacy &amp; cookies</a>
-    </li>
 </ul>
 <div id="github-actions">
-  <a class="github-button" href="https://github.com/microsoft/aroworkshop" data-show-count="true" data-icon="octicon-star" aria-label="Star microsoft/aroworkshop on GitHub">Star</a>
-  <a class="github-button" href="https://github.com/microsoft/aroworkshop/fork" data-show-count="true" data-icon="octicon-repo-forked" aria-label="Fork microsoft/aroworkshop on GitHub">Fork</a>
-  <a class="github-button" href="https://github.com/microsoft/aroworkshop/issues" data-show-count="true" data-icon="octicon-issue-opened"aria-label="Issue microsoft/aroworkshop on GitHub">Issue</a>
-  <p class="build">#BUILD_ID# - <a class="commit" href="https://github.com/microsoft/aroworkshop/commit/#COMMIT_ID#">#COMMIT_ID#</a></p>
+  <a class="github-button" href="https://github.com/brianstinehart/ocpworkshop" data-show-count="true" data-icon="octicon-star" aria-label="Star microsoft/aroworkshop on GitHub">Star</a>
+  <a class="github-button" href="https://github.com/brianstinehart/ocpworkshop/fork" data-show-count="true" data-icon="octicon-repo-forked" aria-label="Fork microsoft/aroworkshop on GitHub">Fork</a>
+  <a class="github-button" href="https://github.com/brianstinehart/ocpworkshop/issues" data-show-count="true" data-icon="octicon-issue-opened"aria-label="Issue microsoft/aroworkshop on GitHub">Issue</a>
+  <p class="build">#BUILD_ID# - <a class="commit" href="https://github.com/brianstinehart/ocpworkshop/commit/#COMMIT_ID#">#COMMIT_ID#</a></p>
 </div>
 
 <p id="copyright-notice">
@@ -282,10 +249,10 @@
                 
 
     
-        <section id="contributors" class="h1">
+        <section id="intro" class="h1">
             
                     
-                    <h1>Red Hat OpenShift Workshop</h1>
+                    <h1 class="nocount">Red Hat OpenShift Workshop</h1>
                     
                 
 
@@ -306,18 +273,6 @@
 
 <p>You’ll be doing the majority of the labs using the OpenShift CLI, but you can also accomplish them using the Azure Red Hat OpenShift web console.</p>
 
-<p>The following people have contributed to this workshop, thanks!</p>
-
-<div class="github-contributors">
-<div class="github-contributor">
-  <img class="github-avatar" src="https://avatars.githubusercontent.com/brianstinehart?s=60&amp;v=4" />
-  <span>
-    <a href="http://github.com/brianstinehart">@brianstinehart</a>
-  </span>
-</div>
-
-</div>
-
         </section>
     
 
@@ -327,129 +282,23 @@
                     <h2>Prerequisites</h2>
                 
 
-            <h3 id="azure-subscription-and-azure-red-hat-openshift-environment">Azure subscription and Azure Red Hat OpenShift environment</h3>
+            <h4 id="github-account">GitHub Account</h4>
+<p>You will need a personal GitHub account for today’s workshop. If you don’t already have one, you can sign up for free <a href="https://github.com/join">here</a>.</p>
 
-<!-- Begin collapsible container div -->
-<div class="collapsible-content-container">
-  <!-- Begin collapsible container button -->
-  <button class="toggle-collapsible">Toggle</button>
-  <!-- Begin collapsible container content div -->
-  <div class="collapsible-content">
-    <!-- Begin parsedText -->
-    
-<p>If you have been provided with a Microsoft Hands-on Labs environment for this workshop through a registration link and an activation code, please continue to registration and activate the lab.</p>
+<h4 id="ssh-client">SSH Client</h4>
+<p>You will also need a client to SSH into a jumphost for command line access. Linux and Mac systems tend to have one included, and one of the most popular clients for Windows is PuTTY that you can download <a href="https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html">here</a>.</p>
 
-<p><img src="media/managedlab/0-registration.png" alt="Registration" /></p>
+<h4 id="lab-setup">Lab Setup</h4>
+<p>Along with the web interface, we will be running commands directly against our cluster using a jump host. The SSH client mentioned above will be used to establish an SSH session to that jump host, and the diagram below provides a visual of how this hangs together.</p>
 
-<p>After you complete the registration, click Launch Lab</p>
+<p><img src="media/diagram.png" alt="Diagram" /></p>
 
-<p><img src="media/managedlab/1-launchlab.png" alt="Launch lab" /></p>
+<h4 id="ssh-session">SSH Session</h4>
+<p>So our first step will be to SSH into the jump host. Details will be provided by the instructor providing the command to run and the required password.</p>
 
-<p>The Azure subscription and associated lab credentials will be provisioned. This will take a few moments. This process will also provision an Azure Red Hat OpenShift cluster.</p>
+<p>It will look similar to this: <strong>ssh student01@3.104.30…</strong></p>
 
-<p><img src="media/managedlab/2-preparinglab.png" alt="Preparing lab" /></p>
-
-<p>Once the environment is provisioned, a screen with all the appropriate lab credentials will be presented. Additionally, you’ll have your Azure Red Hat OpenShift cluster endpoint. The credentials will also be emailed to the email address entered at registration.</p>
-
-<p><img src="media/managedlab/3-credentials.png" alt="Credentials" /></p>
-
-<p>You can now skip the <strong>Create cluster</strong> section and jump to <a href="#createproject">create project</a>.</p>
-
-
-    <!-- End parsedText -->
-  </div>
-  <!-- End collapsible container content div -->
-</div>
-<!-- End collapsible container div -->
-
-<h3 id="tools">Tools</h3>
-
-<h4 id="azure-cloud-shell">Azure Cloud Shell</h4>
-
-<p>You can use the Azure Cloud Shell accessible at <a href="https://shell.azure.com">https://shell.azure.com</a> once you login with an Azure subscription.</p>
-
-<!-- Begin collapsible container div -->
-<div class="collapsible-content-container">
-  <!-- Begin collapsible container button -->
-  <button class="toggle-collapsible">Toggle</button>
-  <!-- Begin collapsible container content div -->
-  <div class="collapsible-content">
-    <!-- Begin parsedText -->
-    
-<p>Head over to <a href="https://shell.azure.com">https://shell.azure.com</a> and sign in with your Azure Subscription details.</p>
-
-<p>Select <strong>Bash</strong> as your shell.</p>
-
-<p><img src="media/cloudshell/0-bash.png" alt="Select Bash" /></p>
-
-<p>Select <strong>Show advanced settings</strong></p>
-
-<p><img src="media/cloudshell/1-mountstorage-advanced.png" alt="Select show advanced settings" /></p>
-
-<p>Set the <strong>Storage account</strong> and <strong>File share</strong> names to your resource group name (all lowercase, without any special characters). Leave other settings unchanged, then hit <strong>Create storage</strong></p>
-
-<p><img src="media/cloudshell/2-storageaccount-fileshare.png" alt="Azure Cloud Shell" /></p>
-
-<p>You should now have access to the Azure Cloud Shell</p>
-
-<p><img src="media/cloudshell/3-cloudshell.png" alt="Set the storage account and fileshare names" /></p>
-
-
-    <!-- End parsedText -->
-  </div>
-  <!-- End collapsible container content div -->
-</div>
-<!-- End collapsible container div -->
-
-<h4 id="openshift-cli-oc">OpenShift CLI (oc)</h4>
-
-<p>You’ll need to download the <strong>latest OpenShift CLI (oc)</strong> client tools for OpenShift 4.3. You can follow the steps below on the Azure Cloud Shell.</p>
-
-<!-- Begin collapsible container div -->
-<div class="collapsible-content-container">
-  <!-- Begin collapsible container button -->
-  <button class="toggle-collapsible">Toggle</button>
-  <!-- Begin collapsible container content div -->
-  <div class="collapsible-content">
-    <!-- Begin parsedText -->
-    
-<blockquote>
-  <p><strong>Note</strong> You’ll need to change the link below to the latest link you get from the page.
-<img src="media/github-oc-release.png" alt="GitHub release links" /></p>
-</blockquote>
-
-<p>Please run following commands on Azure Cloud Shell to download and setup the OpenShift client.</p>
-
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> ~
-wget https://mirror.openshift.com/pub/openshift-v4/clients/ocp/latest/openshift-client-linux.tar.gz
-
-<span class="nb">mkdir </span>openshift
-
-<span class="nb">tar</span> <span class="nt">-zxvf</span> openshift-client-linux.tar.gz <span class="nt">-C</span> openshift
-
-<span class="nb">echo</span> <span class="s1">'export PATH=$PATH:~/openshift'</span> <span class="o">&gt;&gt;</span> ~/.bashrc <span class="o">&amp;&amp;</span> <span class="nb">source</span> ~/.bashrc
-
-</code></pre></div></div>
-
-<p>The OpenShift CLI (oc) is now installed.</p>
-
-<p>In case you want to work from your own operating system, here are the links to the different versions of CLI:</p>
-
-<ul>
-  <li>https://mirror.openshift.com/pub/openshift-v4/clients/ocp/latest/openshift-client-windows.zip</li>
-  <li>https://mirror.openshift.com/pub/openshift-v4/clients/ocp/latest/openshift-client-linux.tar.gz</li>
-  <li>https://mirror.openshift.com/pub/openshift-v4/clients/ocp/latest/openshift-client-mac.tar.gz</li>
-</ul>
-
-
-    <!-- End parsedText -->
-  </div>
-  <!-- End collapsible container content div -->
-</div>
-<!-- End collapsible container div -->
-
-<h4 id="github-account">GitHub Account</h4>
-<p>You’ll need a personal GitHub account. You can sign up for free <a href="https://github.com/join">here</a>.</p>
+<p><img src="media/jumpssh.png" alt="Jump host SSH" /></p>
 
         </section>
     
@@ -611,7 +460,7 @@ ImageStream and Builds: <a href="https://cloudowski.com/articles/why-managing-co
                     
                 
 
-            <p>Now that you have your environment provisioned and the prerequisites fulfilled, it is time to start working on the labs.</p>
+            <p>Before we get started working on today’s labs, let’s have a quick look at what we’ll be deploying.</p>
 
         </section>
     
@@ -663,251 +512,16 @@ ImageStream and Builds: <a href="https://cloudowski.com/articles/why-managing-co
     
         <section id="createcluster" class="h2">
             
-                    <h2>Create cluster</h2>
+                    <h2>Cluster Access</h2>
                 
 
-            <h3 id="create-access-and-manage-an-azure-red-hat-openshift-43-cluster">Create, access, and manage an Azure Red Hat OpenShift 4.3 Cluster</h3>
+            <h3 id="access-your-azure-red-hat-openshift-cluster">Access your Azure Red Hat OpenShift Cluster</h3>
 
-<p>We will now create our own ARO cluster.</p>
-
-<h2 id="before-you-begin">Before you begin</h2>
-
-<p>If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.75 or later. Run <code class="language-plaintext highlighter-rouge">az --version</code> to find the version. If you need to install or upgrade, see <a href="https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest">Install Azure CLI</a>.</p>
-
-<h3 id="install-the-az-aro-extension">Install the <code class="language-plaintext highlighter-rouge">az aro</code> extension</h3>
-
-<p>The <code class="language-plaintext highlighter-rouge">az aro</code> extension allows you to create, access, and delete Azure Red Hat OpenShift clusters directly from the command line using the Azure CLI.</p>
-
-<!-- Begin collapsible container div -->
-<div class="collapsible-content-container">
-  <!-- Begin collapsible container button -->
-  <button class="toggle-collapsible">Toggle</button>
-  <!-- Begin collapsible container content div -->
-  <div class="collapsible-content">
-    <!-- Begin parsedText -->
-    
-<p>Run the following command to install the <code class="language-plaintext highlighter-rouge">az aro</code> extension.</p>
-
-<pre><code class="language-azurecli-interactive">az extension add -n aro --index https://az.aroapp.io/stable
-</code></pre>
-
-<p>If you already have the extension installed, you can update by running the following command.</p>
-
-<pre><code class="language-azurecli-interactive">az extension update -n aro --index https://az.aroapp.io/stable
-</code></pre>
-
-
-    <!-- End parsedText -->
-  </div>
-  <!-- End collapsible container content div -->
-</div>
-<!-- End collapsible container div -->
-
-<h3 id="register-the-resource-provider">Register the resource provider</h3>
-
-<p>Next, you need to register the <code class="language-plaintext highlighter-rouge">Microsoft.RedHatOpenShift</code> resource provider in your subscription.</p>
-
-<!-- Begin collapsible container div -->
-<div class="collapsible-content-container">
-  <!-- Begin collapsible container button -->
-  <button class="toggle-collapsible">Toggle</button>
-  <!-- Begin collapsible container content div -->
-  <div class="collapsible-content">
-    <!-- Begin parsedText -->
-    
-<pre><code class="language-azurecli-interactive">az provider register -n Microsoft.RedHatOpenShift --wait
-</code></pre>
-
-<p>Verify the extension is registered.</p>
-
-<pre><code class="language-azurecli-interactive">az -v
-</code></pre>
-
-<p>You should get an output similar to the below.</p>
-
-<pre><code class="language-output">...
-Extensions:
-aro                                1.0.0
-...
-</code></pre>
-
-
-    <!-- End parsedText -->
-  </div>
-  <!-- End collapsible container content div -->
-</div>
-<!-- End collapsible container div -->
-
-<h3 id="get-a-red-hat-pull-secret-optional">Get a Red Hat pull secret (optional)</h3>
-
-<p>A Red Hat pull secret enables your cluster to access Red Hat container registries along with additional content. This step is <strong>optional</strong> but recommended.</p>
-
-<p>Obtain your pull secret by navigating to https://cloud.redhat.com/openshift/install/azure/aro-provisioned and clicking <em>Download pull secret</em>.</p>
-
-<p>You will need to log in to your Red Hat account or create a new Red Hat account with your business email and accept the terms and conditions.</p>
-
-<p>Keep the saved <code class="language-plaintext highlighter-rouge">pull-secret.txt</code> file somewhere safe - it will be used in each cluster creation.</p>
-
-<h3 id="create-a-virtual-network-containing-two-empty-subnets">Create a virtual network containing two empty subnets</h3>
-
-<p>Next, you will create a virtual network containing two empty subnets.</p>
-
-<!-- Begin collapsible container div -->
-<div class="collapsible-content-container">
-  <!-- Begin collapsible container button -->
-  <button class="toggle-collapsible">Toggle</button>
-  <!-- Begin collapsible container content div -->
-  <div class="collapsible-content">
-    <!-- Begin parsedText -->
-    
-<ol>
-  <li>
-    <p><strong>Set the following variables.</strong></p>
-
-    <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">LOCATION=eastus                 #</span><span class="w"> </span>the location of your cluster
-<span class="gp">RESOURCEGROUP=aro-rg            #</span><span class="w"> </span>the name of the resource group where you want to create your cluster
-<span class="gp">CLUSTER=cluster                 #</span><span class="w"> </span>the name of your cluster
-</code></pre></div>    </div>
-  </li>
-  <li>
-    <p><strong>Create a resource group</strong></p>
-
-    <p>An Azure resource group is a logical group in which Azure resources are deployed and managed. When you create a resource group, you are asked to specify a location. This location is where resource group metadata is stored, it is also where your resources run in Azure if you don’t specify another region during resource creation. Create a resource group using the [az group create][az-group-create] command.</p>
-
-    <pre><code class="language-azurecli-interactive"> az group create --name $RESOURCEGROUP --location $LOCATION
-</code></pre>
-
-    <p>The following example output shows the resource group created successfully:</p>
-
-    <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w"> </span><span class="p">{</span><span class="w">
- </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/subscriptions/&lt;guid&gt;/resourceGroups/aro-rg"</span><span class="p">,</span><span class="w">
- </span><span class="nl">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eastus"</span><span class="p">,</span><span class="w">
- </span><span class="nl">"managedBy"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
- </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"aro-rg"</span><span class="p">,</span><span class="w">
- </span><span class="nl">"properties"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-     </span><span class="nl">"provisioningState"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Succeeded"</span><span class="w">
- </span><span class="p">},</span><span class="w">
- </span><span class="nl">"tags"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
- </span><span class="p">}</span><span class="w">
-</span></code></pre></div>    </div>
-  </li>
-  <li>
-    <p><strong>Create a virtual network.</strong></p>
-
-    <p>Azure Red Hat OpenShift clusters running OpenShift 4 require a virtual network with two empty subnets, for the master and worker nodes.</p>
-
-    <p>Create a new virtual network in the same resource group you created earlier.</p>
-
-    <pre><code class="language-azurecli-interactive"> az network vnet create \
- --resource-group $RESOURCEGROUP \
- --name aro-vnet \
- --address-prefixes 10.0.0.0/22
-</code></pre>
-
-    <p>The following example output shows the virtual network created successfully:</p>
-
-    <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w"> </span><span class="p">{</span><span class="w">
- </span><span class="nl">"newVNet"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-     </span><span class="nl">"addressSpace"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-     </span><span class="nl">"addressPrefixes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-         </span><span class="s2">"10.0.0.0/22"</span><span class="w">
-     </span><span class="p">]</span><span class="w">
-     </span><span class="p">},</span><span class="w">
-     </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/subscriptions/&lt;guid&gt;/resourceGroups/aro-rg/providers/Microsoft.Network/virtualNetworks/aro-vnet"</span><span class="p">,</span><span class="w">
-     </span><span class="nl">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eastus"</span><span class="p">,</span><span class="w">
-     </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"aro-vnet"</span><span class="p">,</span><span class="w">
-     </span><span class="nl">"provisioningState"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Succeeded"</span><span class="p">,</span><span class="w">
-     </span><span class="nl">"resourceGroup"</span><span class="p">:</span><span class="w"> </span><span class="s2">"aro-rg"</span><span class="p">,</span><span class="w">
-     </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Microsoft.Network/virtualNetworks"</span><span class="w">
- </span><span class="p">}</span><span class="w">
- </span><span class="p">}</span><span class="w">
-</span></code></pre></div>    </div>
-  </li>
-  <li>
-    <p><strong>Add an empty subnet for the master nodes.</strong></p>
-
-    <pre><code class="language-azurecli-interactive"> az network vnet subnet create \
- --resource-group $RESOURCEGROUP \
- --vnet-name aro-vnet \
- --name master-subnet \
- --address-prefixes 10.0.0.0/23 \
- --service-endpoints Microsoft.ContainerRegistry
-</code></pre>
-  </li>
-  <li>
-    <p><strong>Add an empty subnet for the worker nodes.</strong></p>
-
-    <pre><code class="language-azurecli-interactive"> az network vnet subnet create \
- --resource-group $RESOURCEGROUP \
- --vnet-name aro-vnet \
- --name worker-subnet \
- --address-prefixes 10.0.2.0/23 \
- --service-endpoints Microsoft.ContainerRegistry
-</code></pre>
-  </li>
-  <li>
-    <p><strong><a href="https://docs.microsoft.com/azure/private-link/disable-private-link-service-network-policy">Disable subnet private endpoint policies</a> on the master subnet.</strong> This is required to be able to connect and manage the cluster.</p>
-
-    <pre><code class="language-azurecli-interactive"> az network vnet subnet update \
- --name master-subnet \
- --resource-group $RESOURCEGROUP \
- --vnet-name aro-vnet \
- --disable-private-link-service-network-policies true
-</code></pre>
-  </li>
-</ol>
-
-
-    <!-- End parsedText -->
-  </div>
-  <!-- End collapsible container content div -->
-</div>
-<!-- End collapsible container div -->
-
-<h2 id="create-the-cluster">Create the cluster</h2>
-
-<p>Run the following command to create a cluster. Optionally, you can pass a pull secret which enables your cluster to access Red Hat container registries along with additional content. Access your pull secret by navigating to the <a href="https://cloud.redhat.com/openshift/install/azure/installer-provisioned">Red Hat OpenShift Cluster Manager</a> and clicking <strong>Copy Pull Secret</strong>.</p>
-
-<!-- Begin collapsible container div -->
-<div class="collapsible-content-container">
-  <!-- Begin collapsible container button -->
-  <button class="toggle-collapsible">Toggle</button>
-  <!-- Begin collapsible container content div -->
-  <div class="collapsible-content">
-    <!-- Begin parsedText -->
-    
-<pre><code class="language-azurecli-interactive">az aro create \
-  --resource-group $RESOURCEGROUP \
-  --name $CLUSTER \
-  --vnet aro-vnet \
-  --master-subnet master-subnet \
-  --worker-subnet worker-subnet
-  # --domain foo.example.com # [OPTIONAL] custom domain
-  # --pull-secret '$(&lt; pull-secret.txt)' # [OPTIONAL]
-</code></pre>
-<blockquote>
-  <p>[!NOTE]
-It normally takes about 35 minutes to create a cluster.</p>
-</blockquote>
-
-<blockquote>
-  <p>[!IMPORTANT]
-If you choose to specify a custom domain, for example <strong>foo.example.com</strong>, the OpenShift console will be available at a URL such as <code class="language-plaintext highlighter-rouge">https://console-openshift-console.apps.foo.example.com</code>, instead of the built-in domain <code class="language-plaintext highlighter-rouge">https://console-openshift-console.apps.&lt;random&gt;.&lt;location&gt;.aroapp.io</code>.</p>
-
-  <p>By default, OpenShift uses self-signed certificates for all of the routes created on <code class="language-plaintext highlighter-rouge">*.apps.&lt;random&gt;.&lt;location&gt;.aroapp.io</code>.  If you choose to use custom DNS after connecting to the cluster, you will need to follow the OpenShift documentation to <a href="https://docs.openshift.com/container-platform/4.3/authentication/certificates/replacing-default-ingress-certificate.html">configure a custom CA for your ingress controller</a> and a <a href="https://docs.openshift.com/container-platform/4.3/authentication/certificates/api-server.html">custom CA for your API server</a>.</p>
-
-</blockquote>
-
-
-    <!-- End parsedText -->
-  </div>
-  <!-- End collapsible container content div -->
-</div>
-<!-- End collapsible container div -->
+<p>We’ll start by getting into our individual clusters.</p>
 
 <h2 id="connect-to-the-cluster">Connect to the cluster</h2>
 
-<p>You can log into the cluster using the <code class="language-plaintext highlighter-rouge">kubeadmin</code> user, and you can get the password by running the command below.</p>
+<p>The cluster web console’s URL will be listed as part of the lab Instructions provided by the instructor.</p>
 
 <!-- Begin collapsible container div -->
 <div class="collapsible-content-container">
@@ -917,22 +531,25 @@ If you choose to specify a custom domain, for example <strong>foo.example.com</s
   <div class="collapsible-content">
     <!-- Begin parsedText -->
     
-<p>Run the following command, replacing <code class="language-plaintext highlighter-rouge">&lt;cluster name&gt;</code> and <code class="language-plaintext highlighter-rouge">&lt;resource group&gt;</code> by those specific to your environment, to find the password for the <code class="language-plaintext highlighter-rouge">kubeadmin</code> user.</p>
+<blockquote>
+  <p><strong>Note</strong> Be sure to logout of any Microsoft accounts prior to accessing the login screens or you will not be given the option to login with the account we provide.</p>
+</blockquote>
 
-<pre><code class="language-azurecli-interactive">az aro list-credentials \
-  --name &lt;cluster name&gt; \
-  --resource-group &lt;resource group&gt;
-</code></pre>
+<p>Using console URL link provided, you will be directed to the login page. Select the <strong>RHPDS-AAD</strong> option.</p>
 
-<p>The following example output shows the password will be in <code class="language-plaintext highlighter-rouge">kubeadminPassword</code>.</p>
+<p><img src="media/aro-loginpage.png" alt="ARO Login Page" /></p>
 
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"kubeadminPassword"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;generated password&gt;"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"kubeadminUsername"</span><span class="p">:</span><span class="w"> </span><span class="s2">"kubeadmin"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
+<p>You will be forwarded to a Microsoft login screen - select <strong>Use another account</strong> if you have other Microsoft account listed - where you will use the login details provided.</p>
 
-<p>Save these secrets, you are going to use them to connect to the Web Portal</p>
+<p><img src="media/aro-loginpageMS1.png" alt="Microsoft Login Page" /> <img src="media/aro-loginpageMS2.png" alt="Microsoft User Login Page" /> <img src="media/aro-loginpageMS3.png" alt="Microsoft Password Login Page" /></p>
+
+<p>From here you will be taken to the OpenShift web console landing page.</p>
+
+<blockquote>
+  <p><strong>Note</strong> Some browsers may take you back to the initial OpenShift login screen where you will need select the RHPDS-AAD icon once more.</p>
+</blockquote>
+
+<p><img src="media/aro-landing.png" alt="ARO Landing Page" /></p>
 
 
     <!-- End parsedText -->
@@ -951,7 +568,7 @@ If you choose to specify a custom domain, for example <strong>foo.example.com</s
                     <h2>Create Project</h2>
                 
 
-            <h3 id="login-to-the-web-console">Login to the web console</h3>
+            <h3 id="retrieve-the-login-command-and-token">Retrieve the login command and token</h3>
 
 <!-- Begin collapsible container div -->
 <div class="collapsible-content-container">
@@ -961,59 +578,25 @@ If you choose to specify a custom domain, for example <strong>foo.example.com</s
   <div class="collapsible-content">
     <!-- Begin parsedText -->
     
-<p>Each Azure Red Hat OpenShift cluster has a public hostname that hosts the OpenShift Web Console.</p>
-
-<p>You can use command <code class="language-plaintext highlighter-rouge">az aro list</code> to list the clusters in your current Azure subscription.</p>
-
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>az aro list <span class="nt">-o</span> table
-</code></pre></div></div>
-
-<p>You should get back something like <code class="language-plaintext highlighter-rouge">https://console-openshift-console.apps.rt80g8x5.eastus.aroapp.io</code> under the URL column.</p>
-
-<p><img src="media/aro-url.png" alt="Azure Cloud Shell ARO URL" /></p>
-
-<p>If you click on this like or paste into a browser you’ll be asked to login to the OpenShift Container Platform console. Use the <code class="language-plaintext highlighter-rouge">kubeadminUsername</code> and <code class="language-plaintext highlighter-rouge">kubeadminPassword</code> from previous exercise.</p>
-
-<blockquote>
-  <p><strong>Note</strong> These credentials were gathered in step “2.2 Connect to the cluster”</p>
-</blockquote>
-
-<p>After logging in, you should be able to see the Azure Red Hat OpenShift Web Console.</p>
-
-<p><img src="media/openshift-webconsole.png" alt="Azure Red Hat OpenShift Web Console" /></p>
-
-
-    <!-- End parsedText -->
-  </div>
-  <!-- End collapsible container content div -->
-</div>
-<!-- End collapsible container div -->
-
-<h3 id="retrieve-the-login-command-and-token">Retrieve the login command and token</h3>
-
-<!-- Begin collapsible container div -->
-<div class="collapsible-content-container">
-  <!-- Begin collapsible container button -->
-  <button class="toggle-collapsible">Toggle</button>
-  <!-- Begin collapsible container content div -->
-  <div class="collapsible-content">
-    <!-- Begin parsedText -->
-    
-<blockquote>
-  <p><strong>Note</strong> Make sure you complete the <a href="#prereq">prerequisites</a> to install the OpenShift CLI on the Azure Cloud Shell.</p>
-</blockquote>
-
 <p>Once you’re logged into the Web Console, click on the username on the top right, then click <strong>Copy Login Command</strong>.</p>
 
 <p><img src="media/login-command.png" alt="Copy login command link" /></p>
 
+<blockquote>
+  <p><strong>Note</strong> Some browsers may take you back to the initial OpenShift login screen where you will need select the RHPDS-AAD icon once more.</p>
+</blockquote>
+
 <p>Click <strong>Display Token</strong>, then copy the command in the section <strong>Log in with this token</strong>.</p>
+
+<p><img src="media/token.png" alt="Display token" /></p>
 
 <p><img src="media/login-command2.png" alt="Copy login command screen" /></p>
 
-<p>Open the <a href="https://shell.azure.com">Azure Cloud Shell</a> and paste the login command. You should be able to connect to the cluster.</p>
+<p>Take this login command and paste it into the SSH session we started on the jump host earlier in the prerequisites section.</p>
 
-<p><img src="media/oc-login-cloudshell.png" alt="Login through the cloud shell" /></p>
+<p><img src="media/oc-login.png" alt="OC Login through jump host" /></p>
+
+<p>We are now connected to our OpenShift cluster through the jump host.</p>
 
 
     <!-- End parsedText -->
@@ -1032,10 +615,12 @@ If you choose to specify a custom domain, for example <strong>foo.example.com</s
   <div class="collapsible-content">
     <!-- Begin parsedText -->
     
-<p>A project allows a community of users to organize and manage their content in isolation from other communities.</p>
+<p>A project allows a community of users to organize and manage their content in isolation from other communities. To create a new project we run the <code class="language-plaintext highlighter-rouge">oc new-project</code> command followed by the name of the project we would like to create.</p>
 
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>oc new-project workshop
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>oc new-project workshop&lt;student#&gt;
 </code></pre></div></div>
+
+<p>For example, if you are student 15, the command would be <code class="language-plaintext highlighter-rouge">oc new-project workshop15</code></p>
 
 <p><img src="media/oc-newproject.png" alt="Create new project" /></p>
 
@@ -1074,17 +659,12 @@ If you choose to specify a custom domain, for example <strong>foo.example.com</s
   <div class="collapsible-content">
     <!-- Begin parsedText -->
     
-<p>Azure Red Hat OpenShift provides a container image and template to make creating a new MongoDB database service easy. The template provides parameter fields to define all the mandatory environment variables (user, password, database name, etc) with predefined defaults including auto-generation of password values. It will also define both a deployment configuration and a service.</p>
+<p>Azure Red Hat OpenShift provides many container images and templates to make creating new applications &amp; services easy. The template provides parameter fields to define all the mandatory environment variables (user, password, database name, etc) with predefined defaults including auto-generation of password values. It will also define both a deployment configuration and a service.</p>
 
-<p>There are two templates available:</p>
+<p>For this exercise we will use the following template:</p>
 
 <ul>
-  <li>
-    <p><code class="language-plaintext highlighter-rouge">mongodb-ephemeral</code> is for development/testing purposes only because it uses ephemeral storage for the database content. This means that if the database pod is restarted for any reason, such as the pod being moved to another node or the deployment configuration being updated and triggering a redeploy, all data will be lost.</p>
-  </li>
-  <li>
-    <p><code class="language-plaintext highlighter-rouge">mongodb-persistent</code> uses a persistent volume store for the database data which means the data will survive a pod restart. Using persistent volumes requires a persistent volume pool be defined in the Azure Red Hat OpenShift deployment.</p>
-  </li>
+  <li><code class="language-plaintext highlighter-rouge">mongodb-persistent</code> uses a persistent volume store for the database data which means the data will survive a pod restart. Using persistent volumes requires a persistent volume pool be defined in the Azure Red Hat OpenShift deployment.</li>
 </ul>
 
 <blockquote>
@@ -1102,7 +682,11 @@ If you choose to specify a custom domain, for example <strong>foo.example.com</s
     <span class="nt">-p</span> <span class="nv">MONGODB_ADMIN_PASSWORD</span><span class="o">=</span>ratingspassword | oc create <span class="nt">-f</span> -
 </code></pre></div></div>
 
-<p>If you now head back to the web console and navigate to <strong>Workloads &gt; Deployment Configs</strong>, you should see a new entry for mongoDB. Make sure you select <strong>Project: workshop</strong> near the top of the page as well, if you have not already done so.</p>
+<p>This is what you should see in your console:</p>
+
+<p><img src="media/oc-mongodb.png" alt="oc MongoDB" /></p>
+
+<p>If you now head back to the web console and make sure you are in the <strong>workshop&lt;student#&gt;</strong> project, you should see a new entry for MongoDB.</p>
 
 <p><img src="media/mongodb-overview.png" alt="MongoDB deployment" /></p>
 
@@ -1123,12 +707,12 @@ If you choose to specify a custom domain, for example <strong>foo.example.com</s
   <div class="collapsible-content">
     <!-- Begin parsedText -->
     
-<p>Run the <code class="language-plaintext highlighter-rouge">oc status</code> command to view the status of the new application and verify if the deployment of the mongoDB template was successful.</p>
+<p>Run the <code class="language-plaintext highlighter-rouge">oc get all</code> command to view the status of the new application and verify if the deployment of the MongoDB template was successful.</p>
 
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>oc status
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>oc get all
 </code></pre></div></div>
 
-<p><img src="media/oc-status-mongodb.png" alt="oc status" /></p>
+<p><img src="media/oc-status-mongodb.png" alt="oc get all" /></p>
 
 
     <!-- End parsedText -->
@@ -1154,9 +738,9 @@ If you choose to specify a custom domain, for example <strong>foo.example.com</s
 
 <p><img src="media/oc-get-svc-mongo.png" alt="oc get svc" /></p>
 
-<p>The service will be accessible at the following DNS name: <code class="language-plaintext highlighter-rouge">mongodb.workshop.svc.cluster.local</code> which is formed of <code class="language-plaintext highlighter-rouge">[service name].[project name].svc.cluster.local</code>. This resolves only within the cluster.</p>
+<p>The service will be accessible at the following DNS name: <code class="language-plaintext highlighter-rouge">mongodb.workshop&lt;student#&gt;.svc.cluster.local</code> which is formed of <code class="language-plaintext highlighter-rouge">[service name].[project name].svc.cluster.local</code>. This resolves only within the cluster.</p>
 
-<p>You can also retrieve this from the web console by going to **. You’ll need this hostname to configure the <code class="language-plaintext highlighter-rouge">rating-api</code>.</p>
+<p>You can also retrieve this from the web console by toggling to the <strong>Administrator</strong> view, then navigating to <strong>Networking -&gt; Services</strong> and selecting the mongodb service. You’ll need this hostname to configure the <code class="language-plaintext highlighter-rouge">rating-api</code>.</p>
 
 <p><img src="media/mongo-svc-webconsole.png" alt="MongoDB service in the Web Console" /></p>
 
@@ -1213,6 +797,8 @@ If you choose to specify a custom domain, for example <strong>foo.example.com</s
   <div class="collapsible-content">
     <!-- Begin parsedText -->
     
+<p>We’ll now deploy the <code class="language-plaintext highlighter-rouge">rating-api</code> app. <strong>Don’t miss the entry in the following command where we need you to add your GitHub username</strong>.</p>
+
 <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>oc new-app https://github.com/&lt;your GitHub username&gt;/rating-api <span class="nt">--strategy</span><span class="o">=</span><span class="nb">source</span>
 </code></pre></div></div>
 
@@ -1235,15 +821,25 @@ If you choose to specify a custom domain, for example <strong>foo.example.com</s
   <div class="collapsible-content">
     <!-- Begin parsedText -->
     
-<p>Create the <code class="language-plaintext highlighter-rouge">MONGODB_URI</code> environment variable. This URI should look like <code class="language-plaintext highlighter-rouge">mongodb://[username]:[password]@[endpoint]:27017/ratingsdb</code>. You’ll need to replace the <code class="language-plaintext highlighter-rouge">[usernaame]</code> and <code class="language-plaintext highlighter-rouge">[password]</code> with the ones you used when creating the database. You’ll also need to replace the <code class="language-plaintext highlighter-rouge">[endpoint]</code> with the hostname acquired in the previous step</p>
+<p>First we’ll need to get to the correct screen. Ensure you’re in the <strong>Administrator</strong> view, then navigate to <strong>Workloads -&gt; Deployments</strong>, selecting <strong>rating-api</strong>, and move to the <strong>Environment</strong> tab.</p>
+
+<p><img src="media/rating-api-envvars-navigate.png" alt="Navigate to create MONGODB_URI environment variable" /></p>
+
+<p>We can now create the environment variable using the NAME <code class="language-plaintext highlighter-rouge">MONGODB_URI</code>. The VALUE should look like <code class="language-plaintext highlighter-rouge">mongodb://[username]:[password]@[endpoint]:27017/ratingsdb</code>. You’ll need to replace the <code class="language-plaintext highlighter-rouge">[username]</code> and <code class="language-plaintext highlighter-rouge">[password]</code> with the ones you used when creating the database. You’ll also need to replace the <code class="language-plaintext highlighter-rouge">[endpoint]</code> with the hostname acquired in the previous step.</p>
+
+<blockquote>
+  <p><strong>Note</strong> Don’t miss replacing your student number in the following VALUE entry.</p>
+</blockquote>
+
+<p>The VALUE should look something like this: <strong>mongodb://ratingsuser:ratingspassword@mongodb.workshop&lt;student#&gt;.svc.cluster.local:27017/ratingsdb</strong></p>
 
 <p>Hit <strong>Save</strong> when done.</p>
 
 <p><img src="media/rating-api-envvars.png" alt="Create a MONGODB_URI environment variable" /></p>
 
-<p>It can also be done with CLI</p>
+<p>It can also be done with an OC command.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>oc set env dc/rating-api MONGODB_URI=mongodb://ratingsuser:ratingspassword@mongodb.workshop.svc.cluster.local:27017/ratingsdb
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>oc set env deploy/rating-api MONGODB_URI=mongodb://ratingsuser:ratingspassword@mongodb.workshop&lt;student#&gt;.svc.cluster.local:27017/ratingsdb
 </code></pre></div></div>
 
 
@@ -1263,8 +859,11 @@ If you choose to specify a custom domain, for example <strong>foo.example.com</s
   <div class="collapsible-content">
     <!-- Begin parsedText -->
     
-<p>If you navigate to the logs of the <code class="language-plaintext highlighter-rouge">rating-api</code> deployment, you should see a log message confirming the code can successfully connect to the mongoDB.
-For that, in the deployment’s details screen, click on <em>Pods</em> tab, then on one of the pods</p>
+<p>You can navigate to the logs of the <code class="language-plaintext highlighter-rouge">rating-api</code> deployment by going <strong>Workloads -&gt; Pods</strong> and selecting the  <strong>rating-api</strong> pod that is currently <strong>running</strong>,</p>
+
+<p><img src="media/rating-api-navigate.png" alt="Navigate to verify mongoDB connection" /></p>
+
+<p>If you move to the <strong>Logs</strong> tab, you should see a log message confirming the code can successfully connect to the MongoDB.</p>
 
 <p><img src="media/rating-api-working.png" alt="Verify mongoDB connection" /></p>
 
@@ -1290,7 +889,7 @@ For that, in the deployment’s details screen, click on <em>Pods</em> tab, then
 <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>oc get svc rating-api
 </code></pre></div></div>
 
-<p>The service will be accessible at the following DNS name over port 8080: <code class="language-plaintext highlighter-rouge">rating-api.workshop.svc.cluster.local:8080</code> which is formed of <code class="language-plaintext highlighter-rouge">[service name].[project name].svc.cluster.local</code>. This resolves only within the cluster.</p>
+<p>Once you replace your student name in the following, the service will be accessible at this DNS name over port 8080: <code class="language-plaintext highlighter-rouge">rating-api.workshop&lt;student#&gt;.svc.cluster.local:8080</code> which is formed of <code class="language-plaintext highlighter-rouge">[service name].[project name].svc.cluster.local</code>. This resolves only within the cluster.</p>
 
 
     <!-- End parsedText -->
@@ -1301,7 +900,7 @@ For that, in the deployment’s details screen, click on <em>Pods</em> tab, then
 
 <h3 id="setup-github-webhook">Setup GitHub webhook</h3>
 
-<p>To trigger S2I builds when you push code into your GitHib repo, you’ll need to setup the GitHub webhook.</p>
+<p>To trigger S2I builds when you push code into your GitHub repo, you’ll need to setup the GitHub webhook.</p>
 
 <!-- Begin collapsible container div -->
 <div class="collapsible-content-container">
@@ -1311,7 +910,11 @@ For that, in the deployment’s details screen, click on <em>Pods</em> tab, then
   <div class="collapsible-content">
     <!-- Begin parsedText -->
     
-<p>Retrieve the GitHub webhook trigger secret. You’ll need use this secret in the GitHub webhook URL.</p>
+<p>The easiest way to access the URL needed to create the webhook in GitHub is through the web console. If you navigate to <strong>Builds -&gt; Build Configs</strong> and selecting <strong>rating-api</strong>, you will see the copy option for the GitHub webhook URL near the bottom of the page. You’ll use this copied URL to setup the webhook on your GitHub repository.</p>
+
+<p><img src="media/rating-api-github-webhook-url-console.png" alt="Rating API GitHub webhook URL" /></p>
+
+<p>If you prefer to use the command line, start by retrieving the GitHub webhook trigger secret. This is incldued if you copy from the web console, but you’ll need to gather it separately for use the GitHub webhook URL if you use the command line.</p>
 
 <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>oc get bc/rating-api <span class="nt">-o</span><span class="o">=</span><span class="nv">jsonpath</span><span class="o">=</span><span class="s1">'{.spec.triggers..github.secret}'</span>
 </code></pre></div></div>
@@ -1327,11 +930,13 @@ For that, in the deployment’s details screen, click on <em>Pods</em> tab, then
 
 <p><img src="media/rating-api-github-webhook-url.png" alt="Rating API GitHub trigger url" /></p>
 
-<p>Replace the <code class="language-plaintext highlighter-rouge">&lt;secret&gt;</code> placeholder with the secret you retrieved in the previous step to have a URL similar to <code class="language-plaintext highlighter-rouge">https://openshift.9729df58f18c47bab789.eastus.azmosa.io:443/apis/build.openshift.io/v1/namespaces/workshop/buildconfigs/rating-api/webhooks/1inS0TVIN-Zw92xxtIXr/github</code>. You’ll use this URL to setup the webhook on your GitHub repository.</p>
+<p>Replace the <code class="language-plaintext highlighter-rouge">&lt;secret&gt;</code> placeholder with the secret you retrieved in the previous step to have a URL similar to <code class="language-plaintext highlighter-rouge">https://api.qv4g35sq.westeurope.aroapp.io:6443/apis/build.openshift.io/v1/namespaces/workshop01/buildconfigs/rating-api/webhooks/zLKX0A_0CQs6qWNwQqpV/github</code>. You’ll use this URL to setup the webhook on your GitHub repository.</p>
 
-<p>In your GitHub repository, select <strong>Add Webhook</strong> from <strong>Settings</strong> → <strong>Webhooks</strong>.</p>
+<p>In your GitHub repository (e.g. https://github.com/<your GitHub="" username="">/rating-api), navigate to **Settings -&gt; Webhooks** and select **Add Webhook**.</your></p>
 
-<p>Paste the URL output (similar to above) into the Payload URL field.</p>
+<p><img src="media/rating-api-github-webhook-navigation.png" alt="Rating API GitHub webhook navigation" /></p>
+
+<p>Paste the URL output (similar to above) into the <strong>Payload URL</strong> field.</p>
 
 <p>Change the Content Type from GitHub’s default <strong>application/x-www-form-urlencoded</strong> to <strong>application/json</strong>.</p>
 
@@ -1339,9 +944,11 @@ For that, in the deployment’s details screen, click on <em>Pods</em> tab, then
 
 <p><img src="media/rating-api-github-addwebhook.png" alt="GitHub add webhook" /></p>
 
-<p>You should see a message from GitHub stating that your webhook was successfully configured.</p>
+<p>If you click back into the newly created webhook, you should see a message from at the bottom with a green tick under <strong>Recent Deliveries</strong>.</p>
 
-<p>Now, whenever you push a change to your GitHub repository, a new build will automatically start, and upon a successful build a new deployment will start.</p>
+<p><img src="media/rating-api-webhook-success.png" alt="GitHub webhook success" /></p>
+
+<p>Now whenever you push a change to your GitHub repository a new build will automatically start in OpenShift. After a successful build, a new deployment will be triggered as well.</p>
 
 
     <!-- End parsedText -->
@@ -1395,6 +1002,8 @@ For that, in the deployment’s details screen, click on <em>Pods</em> tab, then
   <div class="collapsible-content">
     <!-- Begin parsedText -->
     
+<p>We’ll now deploy the <code class="language-plaintext highlighter-rouge">rating-web</code> app. <strong>Don’t miss the entry in the following command where we need you to add your GitHub username</strong>.</p>
+
 <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>oc new-app https://github.com/&lt;your GitHub username&gt;/rating-web <span class="nt">--strategy</span><span class="o">=</span><span class="nb">source</span>
 </code></pre></div></div>
 
@@ -1417,12 +1026,11 @@ For that, in the deployment’s details screen, click on <em>Pods</em> tab, then
   <div class="collapsible-content">
     <!-- Begin parsedText -->
     
-<p>Create the <code class="language-plaintext highlighter-rouge">API</code> environment variable for <code class="language-plaintext highlighter-rouge">rating-web</code> Deployment Config. The value of this variable is going to be the hostname/port of the <code class="language-plaintext highlighter-rouge">rating-api</code> service.</p>
+<p>Create the <code class="language-plaintext highlighter-rouge">API</code> environment variable for <code class="language-plaintext highlighter-rouge">rating-web</code> Deployment. The value of this variable is going to be the hostname/port of the <code class="language-plaintext highlighter-rouge">rating-api</code> service.</p>
 
-<p>Instead of setting the environment variable through the Azure Red Hat OpenShift Web Console, you can set it through the OpenShift CLI.</p>
+<p>Instead of setting the environment variable through the web console, we’ll set it through the OpenShift CLI.</p>
 
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>oc <span class="nb">set env </span>dc rating-web <span class="nv">API</span><span class="o">=</span>http://rating-api:8080
-
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>oc <span class="nb">set env </span>deploy/rating-web <span class="nv">API</span><span class="o">=</span>http://rating-api:8080
 </code></pre></div></div>
 
 
@@ -1498,7 +1106,9 @@ For that, in the deployment’s details screen, click on <em>Pods</em> tab, then
   <div class="collapsible-content">
     <!-- Begin parsedText -->
     
-<p>Retrieve the GitHub webhook trigger secret. You’ll need use this secret in the GitHub webhook URL.</p>
+<p>As before, the fastest way in through the web console navigating to <strong>Builds -&gt; Build Configs</strong> and selecting <strong>rating-web</strong>, then using the copy option for the GitHub webhook URL near the bottom of the page. You’ll once again use this copied URL to setup the webhook on your GitHub repository.</p>
+
+<p>The process at the command line is also the same as before. Retrieve the GitHub webhook trigger secret you’ll need need in the GitHub webhook URL using the command below:</p>
 
 <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>oc get bc/rating-web <span class="nt">-o</span><span class="o">=</span><span class="nv">jsonpath</span><span class="o">=</span><span class="s1">'{.spec.triggers..github.secret}'</span>
 </code></pre></div></div>
@@ -1514,9 +1124,9 @@ For that, in the deployment’s details screen, click on <em>Pods</em> tab, then
 
 <p><img src="media/rating-web-github-webhook-url.png" alt="Rating Web GitHub trigger url" /></p>
 
-<p>Replace the <code class="language-plaintext highlighter-rouge">&lt;secret&gt;</code> placeholder with the secret you retrieved in the previous step to have a URL similar to <code class="language-plaintext highlighter-rouge">https://openshift.9729df58f18c47bab789.eastus.azmosa.io:443/apis/build.openshift.io/v1/namespaces/workshop/buildconfigs/rating-web/webhooks/Dk5iK-HU8u6Ik1dFRKd4/github</code>. You’ll use this URL to setup the webhook on your GitHub repository.</p>
+<p>Replace the <code class="language-plaintext highlighter-rouge">&lt;secret&gt;</code> placeholder with the secret you retrieved in the previous step to have a URL similar to <code class="language-plaintext highlighter-rouge">https://api.qv4g35sq.westeurope.aroapp.io:6443/apis/build.openshift.io/v1/namespaces/workshop01/buildconfigs/rating-web/webhooks/VZJewR0m1E65dBAv1IYM/github</code>. You’ll use this URL to setup the webhook on your GitHub repository.</p>
 
-<p>In your GitHub repository, select <strong>Add Webhook</strong> from <strong>Settings</strong> → <strong>Webhooks</strong>.</p>
+<p>In your GitHub repository (e.g. https://github.com/<your GitHub="" username="">/rating-web), navigate to **Settings -&gt; Webhooks** and select **Add Webhook**.</your></p>
 
 <p>Paste the URL output (similar to above) into the Payload URL field.</p>
 
@@ -1526,9 +1136,9 @@ For that, in the deployment’s details screen, click on <em>Pods</em> tab, then
 
 <p><img src="media/rating-web-github-addwebhook.png" alt="GitHub add webhook" /></p>
 
-<p>You should see a message from GitHub stating that your webhook was successfully configured.</p>
+<p>If you click back into the newly created webhook, you should see a message from at the bottom with a green tick under <strong>Recent Deliveries</strong>.</p>
 
-<p>Now, whenever you push a change to your GitHub repository, a new build will automatically start, and upon a successful build a new deployment will start.</p>
+<p>Now whenever you push a change to your GitHub repository a new build will automatically start in OpenShift. After a successful build, a new deployment will be triggered as well.</p>
 
 
     <!-- End parsedText -->
@@ -1555,7 +1165,7 @@ For that, in the deployment’s details screen, click on <em>Pods</em> tab, then
 
 <p><img src="media/rating-web-editcolor.png" alt="GitHub edit app" /></p>
 
-<p>Immediately, go to the <strong>Builds</strong> tab in the OpenShift Web Console. You’ll see a new build queued up which was triggered by the push. Once this is done, it will trigger a new deployment and you should see the new website color updated.</p>
+<p>Immediately head to the <strong>Builds</strong> screen in the web console. You’ll see a new build queued up which was triggered by the push. Once this is done, it will trigger a new deployment that you can track in the <strong>Workloads -&gt; Deployments</strong> screen. Once this completes by creating a new pod, you should see the new website color updated.</p>
 
 <p><img src="media/rating-web-cicd-build.png" alt="Webhook build" /></p>
 
@@ -1598,8 +1208,9 @@ For that, in the deployment’s details screen, click on <em>Pods</em> tab, then
   <div class="collapsible-content">
     <!-- Begin parsedText -->
     
-<p>Switch to the <strong>Cluster Console</strong> page. Switch to project <strong>workshop</strong>. Click <strong>Create Network Policy</strong>.
-<img src="media/cluster-console.png" alt="Cluster console page" /></p>
+<p>Navigate to <strong>Networking -&gt; Network Policies</strong> and click <strong>Create Network Policy</strong>.</p>
+
+<p><img src="media/cluster-console.png" alt="Cluster console page" /></p>
 
 
     <!-- End parsedText -->
@@ -1620,13 +1231,13 @@ For that, in the deployment’s details screen, click on <em>Pods</em> tab, then
     
 <p>You will create a policy that applies to any pod matching the <code class="language-plaintext highlighter-rouge">app=rating-api</code> label. The policy will allow ingress only from pods matching the <code class="language-plaintext highlighter-rouge">app=rating-web</code> label.</p>
 
-<p>Use the YAML below in the editor, and make sure you’re targeting the <strong>workshop</strong> project.</p>
+<p>Use the YAML below in the editor, and make sure you’re targeting your project by changing the <strong>namespace</strong> to <strong>workshop&lt;student#&gt;</strong>.</p>
 
 <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">apiVersion</span><span class="pi">:</span> <span class="s">networking.k8s.io/v1</span>
 <span class="na">kind</span><span class="pi">:</span> <span class="s">NetworkPolicy</span>
 <span class="na">metadata</span><span class="pi">:</span>
   <span class="na">name</span><span class="pi">:</span> <span class="s">api-allow-from-web</span>
-  <span class="na">namespace</span><span class="pi">:</span> <span class="s">workshop</span>
+  <span class="na">namespace</span><span class="pi">:</span> <span class="s">workshop&lt;student#&gt;</span>
 <span class="na">spec</span><span class="pi">:</span>
   <span class="na">podSelector</span><span class="pi">:</span>
     <span class="na">matchLabels</span><span class="pi">:</span>
@@ -1638,9 +1249,9 @@ For that, in the deployment’s details screen, click on <em>Pods</em> tab, then
               <span class="na">app</span><span class="pi">:</span> <span class="s">rating-web</span>
 </code></pre></div></div>
 
-<p><img src="media/create-networkpolicy.png" alt="Create network policy" /></p>
-
 <p>Click <strong>Create</strong>.</p>
+
+<p><img src="media/create-networkpolicy.png" alt="Create network policy" /></p>
 
 
     <!-- End parsedText -->
@@ -1728,11 +1339,6 @@ For that, in the deployment’s details screen, click on <em>Pods</em> tab, then
 
 <p><img src="/media/managedlab/10-ostoy-homepage-1.png" alt="Home Page" /></p>
 
-<h3 id="learn-more-about-the-application">Learn more about the application</h3>
-
-<p>To learn more, click on the “About” menu item on the left once we deploy the app.</p>
-
-<p><img src="/media/managedlab/5-ostoy-about.png" alt="ostoy About" /></p>
 
         </section>
     
@@ -1743,40 +1349,7 @@ For that, in the deployment’s details screen, click on <em>Pods</em> tab, then
                     <h2>Application Deployment</h2>
                 
 
-            <h3 id="retrieve-login-command">Retrieve login command</h3>
-
-<p>If not logged in via the CLI, click on the dropdown arrow next to your name in the top-right and select <em>Copy Login Command</em>.</p>
-
-<!-- Begin collapsible container div -->
-<div class="collapsible-content-container">
-  <!-- Begin collapsible container button -->
-  <button class="toggle-collapsible">Toggle</button>
-  <!-- Begin collapsible container content div -->
-  <div class="collapsible-content">
-    <!-- Begin parsedText -->
-    
-<p><img src="/media/managedlab/7-ostoy-login.png" alt="CLI Login" /></p>
-
-<p>Then go to your terminal and paste that command and press enter.  You will see a similar confirmation message if you successfully logged in.</p>
-
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>oc login https://openshift.abcd1234.eastus.azmosa.io <span class="nt">--token</span><span class="o">=</span>hUXXXXXX
-Logged into <span class="s2">"https://openshift.abcd1234.eastus.azmosa.io:443"</span> as <span class="s2">"okashi"</span> using the token provided.
-
-You have access to the following projects and can switch between them with <span class="s1">'oc project &lt;projectname&gt;'</span>:
-
-    aro-demo
-  <span class="k">*</span> aro-shifty
-  ...
-</code></pre></div></div>
-
-
-    <!-- End parsedText -->
-  </div>
-  <!-- End collapsible container content div -->
-</div>
-<!-- End collapsible container div -->
-
-<h3 id="create-new-project">Create new project</h3>
+            <h3 id="create-new-project">Create new project</h3>
 
 <p>Create a new project called “OSToy” in your cluster.</p>
 
@@ -1790,21 +1363,23 @@ You have access to the following projects and can switch between them with <span
     
 <p>Use the following command</p>
 
-<p><code class="language-plaintext highlighter-rouge">oc new-project ostoy</code></p>
+<p><code class="language-plaintext highlighter-rouge">oc new-project ostoy&lt;student#&gt;</code></p>
 
 <p>You should receive the following response</p>
 
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>oc new-project ostoy
-Now using project <span class="s2">"ostoy"</span> on server <span class="s2">"https://openshift.abcd1234.eastus.azmosa.io:443"</span><span class="nb">.</span>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>oc new-project ostoy&lt;student#&gt;
+Now using project <span class="s2">"ostoy&lt;student#&gt;"</span> on server <span class="s2">"https://api.gz49n8jb.westeurope.aroapp.io:6443"</span><span class="nb">.</span>
 
 You can add applications to this project with the <span class="s1">'new-app'</span> command. For example, try:
 
-    oc new-app centos/ruby-25-centos7~https://github.com/sclorg/ruby-ex.git
+    oc new-app rails-postgresql-example
 
-to build a new example application <span class="k">in </span>Ruby.
+to build a new example application <span class="k">in </span>Ruby. Or use kubectl to deploy a simple Kubernetes application:
+
+    kubectl create deployment hello-node <span class="nt">--image</span><span class="o">=</span>k8s.gcr.io/serve_hostname
 </code></pre></div></div>
 
-<p>Equivalently you can also create this new project using the web UI by selecting “Application Console” at the top  then clicking on “+Create Project” button on the right.</p>
+<p>Equivalently, you can also create this new project using the web UI by selecting <strong>Home -&gt; Projects</strong>, then clicking on the <strong>Create Project</strong> button on the right.</p>
 
 <p><img src="/media/managedlab/6-ostoy-newproj.png" alt="UI Create Project" /></p>
 
@@ -1817,7 +1392,11 @@ to build a new example application <span class="k">in </span>Ruby.
 
 <h3 id="download-yaml-configuration">Download YAML configuration</h3>
 
-<p>Download the Kubernetes deployment object yamls from the following locations to your Azure Cloud Shell, in a directory of your choosing (just remember where you placed them for the next step).</p>
+<p>Download the Kubernetes deployment object yamls from the following locations to jump host to a directory of your choosing - just remember where you placed them for the next step.</p>
+
+<p><code class="language-plaintext highlighter-rouge">wget http://aroworkshop.io/yaml/ostoy-fe-deployment.yaml</code></p>
+
+<p><code class="language-plaintext highlighter-rouge">wget http://aroworkshop.io/yaml/ostoy-microservice-deployment.yaml</code></p>
 
 <!-- Begin collapsible container div -->
 <div class="collapsible-content-container">
@@ -1930,11 +1509,11 @@ secret/ostoy-secret created
     
 <p>You should see the following response:</p>
 
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>NAME           HOST/PORT                                                      PATH      SERVICES              PORT      TERMINATION   WILDCARD
-ostoy-route   ostoy-route-ostoy.apps.abcd1234.eastus.azmosa.io             ostoy-frontend-svc   &lt;all&gt;                   None
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>NAME          HOST/PORT                                                      PATH      SERVICES              PORT      TERMINATION   WILDCARD
+ostoy-route   ostoy-route-ostoy01.apps.qv4g35sq.westeurope.aroapp.io                   ostoy-frontend-svc    &lt;all&gt;                   None
 </code></pre></div></div>
 
-<p>Copy <code class="language-plaintext highlighter-rouge">ostoy-route-ostoy.apps.abcd1234.eastus.azmosa.io</code> above and paste it into your browser and press enter.  You should see the homepage of our application.</p>
+<p>Copy <code class="language-plaintext highlighter-rouge">ostoy-route-ostoy&lt;student#&gt;.apps.qv4g35sq.westeurope.aroapp.io</code> from the command line and paste it into your browser and press enter.  You should see the homepage of our application.</p>
 
 <p><img src="/media/managedlab/10-ostoy-homepage.png" alt="Home Page" /></p>
 
@@ -1952,7 +1531,7 @@ ostoy-route   ostoy-route-ostoy.apps.abcd1234.eastus.azmosa.io             ostoy
     
         <section id="lab2-logging" class="h2">
             
-                    <h2>Logging and Metrics</h2>
+                    <h2>Logging</h2>
                 
 
             <p>Assuming you can access the application via the Route provided and are still logged into the CLI (please go back to part 2 if you need to do any of those) we’ll start to use this application.  As stated earlier, this application will allow you to “push the buttons” of OpenShift and see how it works.  We will do this to test the logs.</p>
@@ -2001,87 +1580,6 @@ stderr: Oh no! Error!
 </div>
 <!-- End collapsible container div -->
 
-<h3 id="view-logs-using-azure-monitor-integration">View logs using Azure Monitor Integration</h3>
-
-<!-- Begin collapsible container div -->
-<div class="collapsible-content-container">
-  <!-- Begin collapsible container button -->
-  <button class="toggle-collapsible">Toggle</button>
-  <!-- Begin collapsible container content div -->
-  <div class="collapsible-content">
-    <!-- Begin parsedText -->
-    
-<p>One can use the native Azure service, Azure Monitor, to view and keep application logs along with metrics. This lab assumes that the cluster was already configured to use Azure Monitor for application logs at cluster creation.  If you want more information on how to connect this for a new or existing cluster see the docs here: (https://docs.microsoft.com/en-us/azure/azure-monitor/insights/container-insights-azure-redhat-setup)</p>
-
-<p>Access the azure portal at (https://portal.azure.com/)</p>
-
-<p>Click on “Monitor”.</p>
-
-<p><img src="/media/managedlab/24-ostoy-azuremonitor.png" alt="Monitor" /></p>
-
-<p>Click Logs in the left menu.</p>
-
-<blockquote>
-  <p>Note: if you are asked to select a scope select the Log Analytics scope for your cluster</p>
-</blockquote>
-
-<p><img src="/media/managedlab/29-ostoy-logs.png" alt="container logs" /></p>
-
-<p>Expand “ContainerInsights”.</p>
-
-<p>Double click “ContainerLog”.</p>
-
-<p>Then click the “Run” button at the top.</p>
-
-<p><img src="/media/managedlab/30-ostoy-logs.png" alt="container logs" /></p>
-
-<p>In the bottom pane you will see the results of the application logs returned.  You might need to sort, but you should see the two lines we outputted to <em>stdout</em> and <em>stderr</em>.</p>
-
-<p><img src="/media/managedlab/31-ostoy-logout.png" alt="container logs" /></p>
-
-
-    <!-- End parsedText -->
-  </div>
-  <!-- End collapsible container content div -->
-</div>
-<!-- End collapsible container div -->
-
-<h3 id="view-metrics-using-azure-monitor-integration">View Metrics using Azure Monitor Integration</h3>
-
-<!-- Begin collapsible container div -->
-<div class="collapsible-content-container">
-  <!-- Begin collapsible container button -->
-  <button class="toggle-collapsible">Toggle</button>
-  <!-- Begin collapsible container content div -->
-  <div class="collapsible-content">
-    <!-- Begin parsedText -->
-    
-<p>Click on “Containers” in the left menu under Insights.</p>
-
-<p><img src="/media/managedlab/25-ostoy-monitorcontainers.png" alt="Containers" /></p>
-
-<p>Click on your cluster that is integrated with Azure Monitor.</p>
-
-<p><img src="/media/managedlab/26-ostoy-monitorcluster.png" alt="Cluster" /></p>
-
-<p>You will see metrics for your cluster such as resource consumption over time and pod counts.  Feel free to explore the metrics here.</p>
-
-<p><img src="/media/managedlab/27-ostoy-metrics.png" alt="Metrics" /></p>
-
-<p>For example, if you want to see how much resources our OSTOY pods are using click on the “Containers” tab.</p>
-
-<p>Enter “ostoy” into the search box near the top left.</p>
-
-<p>You will see the 2 pods we have, one for the front-end and one for the microservice and the relevant metric.  Feel free to select other options to see min, max or other percentile usages of the pods.  You can also change to see memory consumption</p>
-
-<p><img src="/media/managedlab/28-ostoy-metrics.png" alt="container metrics" /></p>
-
-
-    <!-- End parsedText -->
-  </div>
-  <!-- End collapsible container content div -->
-</div>
-<!-- End collapsible container div -->
 
         </section>
     
@@ -2106,17 +1604,17 @@ stderr: Oh no! Error!
 
 <p><img src="/media/managedlab/23-ostoy-splitscreen.png" alt="Splitscreen" /></p>
 
-<p>But if your screen is too small or that just won’t work, then open the OSToy application in another tab so you can quickly switch to the OpenShift Web Console once you click the button. To get to this deployment in the OpenShift Web Console go to:</p>
+<p>But if your screen is too small or that just won’t work, then open the OSToy application in another tab so you can quickly switch to the OpenShift console once you click the button. To get to this deployment in the OpenShift Web Console go to:</p>
 
-<p><em>Applications &gt; Deployments &gt;</em> click the number in the “Last Version” column for the “ostoy-frontend” row</p>
+<p><strong>Workloads -&gt; Deployments</strong> and select <strong>ostoy-frontend</strong>.</p>
 
 <p><img src="/media/managedlab/11-ostoy-deploynum.png" alt="Deploy Num" /></p>
 
-<p>Go to the OSToy app, click on <em>Home</em> in the left menu, and enter a message in the “Crash Pod” tile (ie: “This is goodbye!”) and press the “Crash Pod” button.  This will cause the pod to crash and Kubernetes should restart the pod. After you press the button you will see:</p>
+<p>Go to the OSToy app, click on <em>Home</em> in the left menu, and enter a message in the “Crash Pod” tile (e.g. “This is goodbye!”) and press the “Crash Pod” button. This will cause the pod to crash and Kubernetes will restart the pod. After you press the button you will see:</p>
 
 <p><img src="/media/managedlab/12-ostoy-crashmsg.png" alt="Crash Message" /></p>
 
-<p>Quickly switch to the Deployment screen. You will see that the pod is red, meaning it is down but should quickly come back up and show blue.</p>
+<p>Quickly switch to the Deployment screen. You will see that the pod is yellow meaning it is recovering the fallen pad and scaling back to 1. It should quickly come back up and show blue.</p>
 
 <p><img src="/media/managedlab/13-ostoy-podcrash.png" alt="Pod Crash" /></p>
 
@@ -2128,7 +1626,7 @@ stderr: Oh no! Error!
 
 <p><img src="/media/managedlab/15-ostoy-togglehealth.png" alt="Pod Events" /></p>
 
-<p>This will cause the app to stop responding with a “200 HTTP code”. After 3 such consecutive failures (“A”), Kubernetes will kill the pod (“B”) and restart it (“C”). Quickly switch back to the pod events tab and you will see that the liveness probe failed and the pod as being restarted.</p>
+<p>This will cause the app to stop responding with a “200 HTTP code”. After 3 such consecutive failures, Kubernetes will kill the pod and restart it. Quickly switch back to the pod events tab and you will see that the liveness probe failed and the pod as being restarted.</p>
 
 <p><img src="/media/managedlab/16-ostoy-podevents2.png" alt="Pod Events2" /></p>
 
@@ -2533,12 +2031,6 @@ ostoy-microservice-86b4c6f559-p594d   1/1       Running   0          1h
   <p><strong>Note:</strong> The page may still lag a bit which is normal.</p>
 </blockquote>
 
-<h4 id="5-review-resources-in-azure-monitor">5. Review resources in Azure Monitor</h4>
-
-<p>After confirming that the autoscaler did spin up new pods, revisit Azure Monitor like we did in the logging section.  By clickin on the containers tab we can see the resource consumption of the pods and see that three pods were created to handle the load.</p>
-
-<p><img src="/media/managedlab/34-ostoy-hpametrics.png" alt="HPA Metrics" /></p>
-
 
     <!-- End parsedText -->
   </div>
@@ -2550,446 +2042,31 @@ ostoy-microservice-86b4c6f559-p594d   1/1       Running   0          1h
     
 
     
-        <section id="lab-cicd" class="h1">
+        <section id="contributors" class="h1">
             
                     
-                    <h1 class="nocount">Lab 3 - CI/CD</h1>
+                    <h1 class="nocount">Contributors</h1>
                     
                 
 
-            
+            <p>The following people have contributed to this workshop, thanks!</p>
 
-        </section>
-    
-
-    
-        <section id="lab3-cdcd-demo-overview" class="h2">
-            
-                    <h2>CI/CD Demo Overview</h2>
-                
-
-            <h3 id="cicd">CI/CD</h3>
-
-<p>With Continuous Integration and Continuous Delivery, you can accelerate the development and deliver of your microservices. Azure Red Hat OpenShift provides seamless supports to open source DevOps &amp; CICD tools, like Jenkins, Nexus, GitHub and SonarQube.</p>
-
-<h3 id="the-openshift-cicd-demo">The OpenShift CI/CD Demo</h3>
-
-<p>In this lab, you’ll deploy a complete CI/CD demo on Azure Red Hat OpenShift.</p>
-
-<p>Following components will be deployed onto your Azure Red Hat OpenShift cluster.</p>
-
-<ul>
-  <li>A sample Java application, the source code is available at https://github.com/OpenShiftDemos/openshift-tasks</li>
-  <li>A sample OpenShift Pipeline, a pre-defined CI/CD pipeline on ARO.</li>
-  <li>Jenkins, open source CI/CD engine and automation server.</li>
-  <li>Nexus, software artifact repository.</li>
-  <li>SonarQube, code quality platform.</li>
-  <li>Gogs, a self-hosted Git service.</li>
-  <li>PostgreSQL, open source RDBMS database.</li>
-  <li>Eclipse Che, web based Eclipse IDE.</li>
-</ul>
-
-<p>The following diagram shows the steps included in the deployment pipeline:</p>
-
-<p><img src="/media/cicd-pipeline-diagram.png" alt="CI/CD Demo Diagram" /></p>
-
-<p>On every pipeline execution, the code goes through the following steps:</p>
-
-<ul>
-  <li>Code is cloned from Gogs, built, tested and analyzed for bugs and bad patterns</li>
-  <li>The WAR artifact is pushed to Nexus Repository manager</li>
-  <li>A container image (tasks:latest) is built based on the Tasks application WAR artifact deployed on WildFly</li>
-  <li>The Tasks app container image is pushed to the internal image registry</li>
-  <li>The Tasks container image is deployed in a fresh new container in DEV project</li>
-  <li>If tests successful, the pipeline is paused for the release manager to approve the release to STAGE</li>
-  <li>If approved, the DEV image is tagged in the STAGE project</li>
-  <li>The staged image is deployed in a fresh new container in the STAGE project</li>
-</ul>
-
-<p>To learn more about this CI/CD demo, you can visit <a href="https://github.com/nichochen/openshift-cd-demo">this</a> GitHub Repo.</p>
-
-
-        </section>
-    
-
-    
-        <section id="lab3-deploy-cdcd-demo" class="h2">
-            
-                    <h2>Deploy CI/CD Demo</h2>
-                
-
-            <h3 id="clone-the-github-repo">Clone the GitHub Repo</h3>
-
-<p>To deploy the CI/CD demo, you need to download the required deployment files from GitHub repository <code class="language-plaintext highlighter-rouge">https://github.com/siamaksade/openshift-cd-demo.git</code>.</p>
-
-<!-- Begin collapsible container div -->
-<div class="collapsible-content-container">
-  <!-- Begin collapsible container button -->
-  <button class="toggle-collapsible">Toggle</button>
-  <!-- Begin collapsible container content div -->
-  <div class="collapsible-content">
-    <!-- Begin parsedText -->
-    
-<p>On your Azure Cloud Shell, clone the OpenShift CI/CD demo repository. Currently ARO supports OpenShift 4.3, you’ll need to checkout branch <code class="language-plaintext highlighter-rouge">ocp-4.3</code>.</p>
-
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://github.com/siamaksade/openshift-cd-demo <span class="nt">-b</span> ocp-4.3 cicd
-</code></pre></div></div>
-
-    <!-- End parsedText -->
-  </div>
-  <!-- End collapsible container content div -->
+<div class="github-contributors">
+<div class="github-contributor">
+  <img class="github-avatar" src="https://avatars.githubusercontent.com/brianstinehart?s=60&amp;v=4" />
+  <span>
+    <a href="http://github.com/brianstinehart">@brianstinehart</a>
+  </span>
 </div>
-<!-- End collapsible container div -->
 
-<h3 id="deploy-the-demo">Deploy the demo</h3>
-
-<!-- Begin collapsible container div -->
-<div class="collapsible-content-container">
-  <!-- Begin collapsible container button -->
-  <button class="toggle-collapsible">Toggle</button>
-  <!-- Begin collapsible container content div -->
-  <div class="collapsible-content">
-    <!-- Begin parsedText -->
-    
-<p>Now you can proceed to deploy the demo by running the script file <code class="language-plaintext highlighter-rouge">provision.sh</code>, which is under the folder <code class="language-plaintext highlighter-rouge">scripts</code>. In the following command, we specified to install Eclipse Che, and setting the project name suffix as <code class="language-plaintext highlighter-rouge">aro</code>.</p>
-
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./cicd/scripts/provision.sh deploy <span class="nt">--enable-che</span> <span class="nt">--ephemeral</span> <span class="nt">--project-suffix</span> aro
-</code></pre></div></div>
-
-    <!-- End parsedText -->
-  </div>
-  <!-- End collapsible container content div -->
+<div class="github-contributor">
+  <img class="github-avatar" src="https://avatars.githubusercontent.com/SimonDelord?s=60&amp;v=4" />
+  <span>
+    <a href="http://github.com/SimonDelord">@SimonDelord</a>
+  </span>
 </div>
-<!-- End collapsible container div -->
 
-<h3 id="verify-the-deployment">Verify the deployment</h3>
-
-<p>After the deployment is completed, you can verify the newly created resources.</p>
-
-<!-- Begin collapsible container div -->
-<div class="collapsible-content-container">
-  <!-- Begin collapsible container button -->
-  <button class="toggle-collapsible">Toggle</button>
-  <!-- Begin collapsible container content div -->
-  <div class="collapsible-content">
-    <!-- Begin parsedText -->
-    
-<p>Run the following command to review the list of projects.</p>
-
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>oc get project
-</code></pre></div></div>
-
-<p>You’ll see following projects are created by the demo provision script.</p>
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>oc get project
-NAME        DISPLAY NAME    STATUS
-cicd-aro    CI/CD           Active
-dev-aro     Tasks - Dev     Active
-openshift                   Active
-stage-aro   Tasks - Stage   Active
-
-</code></pre></div></div>
-
-<p>Confirm the status of all related containers is <code class="language-plaintext highlighter-rouge">Running</code> or <code class="language-plaintext highlighter-rouge">Completed</code>.</p>
-
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>oc get pod <span class="nt">-n</span> cicd-aro
-</code></pre></div></div>
-
-<p>If the deployment finished successfully, you will see something similar to the following output.</p>
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>NAME                        READY     STATUS      RESTARTS   AGE
-che-2-l4q5k                 1/1       Running     0          2m
-cicd-demo-installer-w46dp   0/1       Completed   0          1m
-gogs-1-krr7x                1/1       Running     2          2m
-gogs-postgresql-1-fftjn     1/1       Running     0          2m
-jenkins-2-mqpwv             1/1       Running     0          3m
-nexus-2-8wvwx               0/1       Running     0          2m
-nexus-2-deploy              1/1       Running     0          2m
-sonardb-1-4b6kg             1/1       Running     0          2m
-sonarqube-1-844q7           1/1       Running     0          2m
-</code></pre></div></div>
-
-<p>From the Azure Red Hat OpenShift web console, you can see the newly created project and resources as well.</p>
-
-
-    <!-- End parsedText -->
-  </div>
-  <!-- End collapsible container content div -->
 </div>
-<!-- End collapsible container div -->
-
-
-        </section>
-    
-
-    
-        <section id="lab3-run_cicd_pipeline" class="h2">
-            
-                    <h2>Run CI/CD Pipeline</h2>
-                
-
-            <h3 id="run-the-cicd-pipeline">Run the CI/CD Pipeline</h3>
-
-<p>A CI/CD pipeline is created by the demo provision script. Please review the pipeline and trigger an execution.</p>
-
-<!-- Begin collapsible container div -->
-<div class="collapsible-content-container">
-  <!-- Begin collapsible container button -->
-  <button class="toggle-collapsible">Toggle</button>
-  <!-- Begin collapsible container content div -->
-  <div class="collapsible-content">
-    <!-- Begin parsedText -->
-    
-<p>On OpenShift Web Console, Navigate to project <code class="language-plaintext highlighter-rouge">cicd-aro</code>. From the side navigation menu, select menu item <code class="language-plaintext highlighter-rouge">Builds</code>, then <code class="language-plaintext highlighter-rouge">Pipelines</code>.</p>
-
-<p>You will see there is a pipeline, named <code class="language-plaintext highlighter-rouge">tasks-pipeline</code>. Click on the name of the pipeline, then you will see the pipeline overview page. In the tab <code class="language-plaintext highlighter-rouge">Configuration</code>, you will see the definition of the pipeline.</p>
-
-<p><img src="media/cicd-definition.png" alt="Pipeline Definition" /></p>
-
-<p>To run the pipeline, click on button <code class="language-plaintext highlighter-rouge">Start Build</code>, which is on the top right corner. Then Azure Red Hat OpenShift will start a new execution instance for that pipeline.</p>
-
-
-    <!-- End parsedText -->
-  </div>
-  <!-- End collapsible container content div -->
-</div>
-<!-- End collapsible container div -->
-
-<h3 id="monitor-the-pipeline">Monitor the pipeline</h3>
-
-<p>After triggering a pipeline execution, please monitor the execution on the web console.</p>
-
-<!-- Begin collapsible container div -->
-<div class="collapsible-content-container">
-  <!-- Begin collapsible container button -->
-  <button class="toggle-collapsible">Toggle</button>
-  <!-- Begin collapsible container content div -->
-  <div class="collapsible-content">
-    <!-- Begin parsedText -->
-    
-<p>You will see the execution result of each stage of the pipeline.</p>
-
-<p><img src="media/cicd-pipeline-view.png" alt="Pipeline Execution" /></p>
-
-<p>For detail information, you can click on the link <code class="language-plaintext highlighter-rouge">View Log</code> of a execution instance to review the real time log output. After clicking <code class="language-plaintext highlighter-rouge">View Log</code>, you will be navigated to the Jenkins login page. Login with OpenShift credentials and grant all the required permissions to Jenkins, then you will see the log output in Jenkins.</p>
-
-<p><img src="media/cicd-jenkins-log.png" alt="Pipeline Logs" /></p>
-
-
-    <!-- End parsedText -->
-  </div>
-  <!-- End collapsible container content div -->
-</div>
-<!-- End collapsible container div -->
-
-<h3 id="approve-pipeline-task">Approve pipeline task</h3>
-
-<p>You may define steps which required user intervention. You can either approve the request in Azure Red Hat OpenShift web console, or in Jenkins. Please allow the pipeline to promote the deployment from project <code class="language-plaintext highlighter-rouge">Dev</code> to <code class="language-plaintext highlighter-rouge">Stage</code>.</p>
-
-<!-- Begin collapsible container div -->
-<div class="collapsible-content-container">
-  <!-- Begin collapsible container button -->
-  <button class="toggle-collapsible">Toggle</button>
-  <!-- Begin collapsible container content div -->
-  <div class="collapsible-content">
-    <!-- Begin parsedText -->
-    
-<p>When the pipeline execution runs to stage ‘Promote to STAGE?’ You will see the pipeline is paused and asking for your input.</p>
-
-<p><img src="media/cicd-approve.png" alt="Approve Pipeline Task" /></p>
-
-<p>Click on the link <code class="language-plaintext highlighter-rouge">Input Required</code> , and you will be navigated to Jenkins. Click button <code class="language-plaintext highlighter-rouge">Promote</code> in Jenkins to approve the task.</p>
-
-    <!-- End parsedText -->
-  </div>
-  <!-- End collapsible container content div -->
-</div>
-<!-- End collapsible container div -->
-
-<h3 id="verify-the-results">Verify the results</h3>
-
-<p>After the pipeline execution is completed, please review the execution result on the web console. You also can login to the Jenkins console to check out the detail.</p>
-
-<!-- Begin collapsible container div -->
-<div class="collapsible-content-container">
-  <!-- Begin collapsible container button -->
-  <button class="toggle-collapsible">Toggle</button>
-  <!-- Begin collapsible container content div -->
-  <div class="collapsible-content">
-    <!-- Begin parsedText -->
-    
-<p>If everything works fine, you will be albe to see all pipeline stages completed successfully, as it shown below. The sample application was built and deployed into project <code class="language-plaintext highlighter-rouge">Dev</code> and <code class="language-plaintext highlighter-rouge">Stage</code>.</p>
-
-<p><img src="media/cicd-pipeline-result.png" alt="CiCD Result" /></p>
-
-<p>You can checkout the status of the application pods in project <code class="language-plaintext highlighter-rouge">Dev</code> and <code class="language-plaintext highlighter-rouge">Stage</code>. Following are the commands and sample output.</p>
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>oc get pod <span class="nt">-n</span> dev-aro
-NAME            READY     STATUS      RESTARTS   AGE
-tasks-1-build   0/1       Completed   0          9m
-tasks-3-59x64   1/1       Running     0          8m
-</code></pre></div></div>
-
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>oc get pod <span class="nt">-n</span> stage-aro
-NAME            READY     STATUS    RESTARTS   AGE
-tasks-4-v8fzt   1/1       Running   0          7m
-</code></pre></div></div>
-
-<p>You can also get the Route of your deployment in project <code class="language-plaintext highlighter-rouge">Dev</code> or <code class="language-plaintext highlighter-rouge">Stage</code>, then access the deployment with the URL, in a web browser.</p>
-
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>oc get route <span class="nt">-n</span> dev-aro
-NAME      HOST/PORT                                                  PATH      SERVICES   PORT      TERMINATION   WILDCARD
-tasks     tasks-dev-aro.apps.xxxxxxxxxxxx.eastus.azmosa.io             tasks      8080                    None
-
-</code></pre></div></div>
-
-    <!-- End parsedText -->
-  </div>
-  <!-- End collapsible container content div -->
-</div>
-<!-- End collapsible container div -->
-
-
-        </section>
-    
-
-    
-        <section id="lab3-cloud-native-ide" class="h2">
-            
-                    <h2>Cloud Native IDE</h2>
-                
-
-            <p>To provide your development team a cloud native experience, you can leverge the power of a cloud native integrated development environment (IDE). Eclipse Che is an open-source web based IDE. It supports multi-users and wide range of programming languages and frameworks.</p>
-
-<h3 id="launch-eclipse-che">Launch Eclipse Che</h3>
-
-<p>Please launch Eclipse Che and create a workspace for the demo application.
-<!-- Begin collapsible container div --></p>
-<div class="collapsible-content-container">
-  <!-- Begin collapsible container button -->
-  <button class="toggle-collapsible">Toggle</button>
-  <!-- Begin collapsible container content div -->
-  <div class="collapsible-content">
-    <!-- Begin parsedText -->
-    
-<p>Get the Route for Eclipse Che with following command.</p>
-
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>oc get route <span class="nt">-n</span> cicd-aro che
-</code></pre></div></div>
-
-<p>You will see some output similar as following.</p>
-
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>NAME      HOST/PORT                                                 PATH      SERVICES   PORT      TERMINATION   WILDCARD
-che       che-cicd-aro.apps.xxxxxx.eastus.azmosa.io             che-host   http                    None                                                                                                                                              
-</code></pre></div></div>
-<p>To access Eclipse Che web console, open the URL which is indicated by  <code class="language-plaintext highlighter-rouge">HOST/PORT</code> in a web browser.</p>
-
-<p>On the Eclipse Che, select the <code class="language-plaintext highlighter-rouge">Blank</code> stack, and click button <code class="language-plaintext highlighter-rouge">CREATE &amp; OPEN</code> to create a blank workspace.</p>
-
-<p><img src="media/che-ui.png" alt="Eclipse Che UI" /></p>
-
-<p>It will take some time for Eclipse Che to setup the workspace. Wait until the workspace is ready, then you can proceed to the next task.</p>
-
-    <!-- End parsedText -->
-  </div>
-  <!-- End collapsible container content div -->
-</div>
-<!-- End collapsible container div -->
-
-<h3 id="check-out-source-code">Check Out Source Code</h3>
-
-<p>After the Eclipse Che workspace is ready, please check out the source code of the demo application on Eclipse Che.</p>
-
-<!-- Begin collapsible container div -->
-<div class="collapsible-content-container">
-  <!-- Begin collapsible container button -->
-  <button class="toggle-collapsible">Toggle</button>
-  <!-- Begin collapsible container content div -->
-  <div class="collapsible-content">
-    <!-- Begin parsedText -->
-    
-<p>Check out the Route URL of Gogs server. Gogs is a light-weight self-hosted Git service.</p>
-
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>oc get route <span class="nt">-n</span> cicd-aro gogs
-</code></pre></div></div>
-
-<p>Please login to Gogs as user <code class="language-plaintext highlighter-rouge">gogs</code> with password <code class="language-plaintext highlighter-rouge">gogs</code>. Copy the address of the repository <code class="language-plaintext highlighter-rouge">openshift-tasks</code>.</p>
-
-<p><img src="media/gogs-repo.png" alt="Gogs Repo" /></p>
-
-<p>Back to Eclipse Che, click <code class="language-plaintext highlighter-rouge">Import Project</code> from menu <code class="language-plaintext highlighter-rouge">Workspace</code> to import the source code from the remote repository. Make sure select <code class="language-plaintext highlighter-rouge">GIT</code> as the version control system, paste the repository URL which you copied from Gogs into the filed <code class="language-plaintext highlighter-rouge">URL</code>. Check the Branch checkbox, and put <code class="language-plaintext highlighter-rouge">eap-7</code> in the textbox for branch. Click button <code class="language-plaintext highlighter-rouge">import</code>, in the next screen, select <code class="language-plaintext highlighter-rouge">Maven</code> for project configuration.</p>
-
-<p><img src="media/che-import.png" alt="Check out source code" /></p>
-
-    <!-- End parsedText -->
-  </div>
-  <!-- End collapsible container content div -->
-</div>
-<!-- End collapsible container div -->
-
-<h3 id="change-and-deploy">Change and Deploy</h3>
-
-<p>Please make some changes to the demo application, and commit the changes to the remote Git repository.</p>
-
-<!-- Begin collapsible container div -->
-<div class="collapsible-content-container">
-  <!-- Begin collapsible container button -->
-  <button class="toggle-collapsible">Toggle</button>
-  <!-- Begin collapsible container content div -->
-  <div class="collapsible-content">
-    <!-- Begin parsedText -->
-    
-<p>Open file <code class="language-plaintext highlighter-rouge">src</code> &gt; <code class="language-plaintext highlighter-rouge">main</code> &gt; <code class="language-plaintext highlighter-rouge">webapp</code> &gt; <code class="language-plaintext highlighter-rouge">index.jsp</code>. Change line 7 and line 45 from <code class="language-plaintext highlighter-rouge">OpenShift Tasks Demo</code> to <code class="language-plaintext highlighter-rouge">Azure Red Hat OpenShift Tasks Demo</code>. Then save the changes.</p>
-
-<p>Before you can commit your changes to Git, you need to setup your Git profile. From top menu <code class="language-plaintext highlighter-rouge">Profile</code>, select menu item <code class="language-plaintext highlighter-rouge">Preferences</code>. In the <code class="language-plaintext highlighter-rouge">Preferences</code> dialog, click <code class="language-plaintext highlighter-rouge">Committer</code> which is under the section <code class="language-plaintext highlighter-rouge">Git</code>. Put in user name <code class="language-plaintext highlighter-rouge">gogs</code> and email <code class="language-plaintext highlighter-rouge">admin@gogs.com</code>. Click button <code class="language-plaintext highlighter-rouge">save</code>, then button <code class="language-plaintext highlighter-rouge">close</code>, to save the changes and close the dialog.</p>
-
-<p><img src="media/che-codechange.png" alt="Code change" /></p>
-
-<p>Next, you need to commit the changes. Click menu item <code class="language-plaintext highlighter-rouge">Commit</code> from menu <code class="language-plaintext highlighter-rouge">Git</code> which is at the top. Put ‘Update title’ in the comment text area. Click button <code class="language-plaintext highlighter-rouge">commit</code> to commit the changes.</p>
-
-<p>In the <code class="language-plaintext highlighter-rouge">Terminal</code> window, which is down at the button in the Eclipse Che window, run following commands to push the changes to remote Gogs Git repository. You will be asked to enter the user name and password for the repository, which are both <code class="language-plaintext highlighter-rouge">gogs</code>.</p>
-
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cd </span>openshift-tasks/
-<span class="nv">$ </span>git push origin
-</code></pre></div></div>
-
-    <!-- End parsedText -->
-  </div>
-  <!-- End collapsible container content div -->
-</div>
-<!-- End collapsible container div -->
-
-<h3 id="verify-the-update">Verify the update</h3>
-
-<p>After pushing the commit to the remote repository, the CI/CD pipeline will be triggered automatically. You will see a new pipeline execution has been launched for the new commit. After the execution finished successfully, you will be able to see your changes on the web page of the application.</p>
-
-<p>From this example you can see, it’s easy to build up a CI/CD pipeline with Open Source tool chains and Azure Red Hat OpenShift. With container &amp; cloud based CI/CD, application development and delivery are significantly accelerated.</p>
-
-
-        </section>
-    
-
-    
-        <section id="intro" class="h1">
-            
-                    
-                    <h1 class="nocount">Red Hat OpenShift Workshop</h1>
-                    
-                
-
-            <p><a href="https://azure.microsoft.com/en-us/services/openshift/">Azure Red Hat OpenShift</a> is a fully managed Red Hat OpenShift service in Azure that is jointly engineered and supported by Microsoft and Red Hat. In this lab, you’ll go through a set of tasks that will help you understand some of the concepts of deploying and securing container based applications on top of Azure Red Hat OpenShift.</p>
-
-<p>You can use this guide as an OpenShift tutorial and as study material to help you get started to learn OpenShift.</p>
-
-<p>Some of the things you’ll be going through:</p>
-
-<ul>
-  <li>Creating a <a href="https://docs.openshift.com/aro/dev_guide/projects.html">project</a> on the Azure Red Hat OpenShift Web Console</li>
-  <li>Deploying a MongoDB container that uses Azure Disks for <a href="https://docs.openshift.com/aro/dev_guide/persistent_volumes.html">persistent storage</a></li>
-  <li>Restoring data into the MongoDB container by <a href="https://docs.openshift.com/aro/dev_guide/executing_remote_commands.html">executing commands</a> on the Pod</li>
-  <li>Deploying a Node JS API and frontend app from Git Hub using <a href="https://docs.openshift.com/aro/creating_images/s2i.html">Source-To-Image (S2I)</a></li>
-  <li>Exposing the web application frontend using <a href="https://docs.openshift.com/aro/dev_guide/routes.html">Routes</a></li>
-  <li>Creating a <a href="https://docs.openshift.com/aro/admin_guide/managing_networking.html#admin-guide-networking-networkpolicy">network policy</a> to control communication between the different tiers in the application</li>
-</ul>
-
-<p>You’ll be doing the majority of the labs using the OpenShift CLI, but you can also accomplish them using the Azure Red Hat OpenShift web console.</p>
 
         </section>
     

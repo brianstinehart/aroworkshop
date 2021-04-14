@@ -1,0 +1,37 @@
+I"R	
+<p>For a dynamic language like Ruby, the build-time and run-time environments are typically the same. Starting with a builder image that describes this environment - with Ruby, Bundler, Rake, Apache, GCC, and other packages needed to set up and run a Ruby application installed - source-to-image performs the following steps:</p>
+
+<ol>
+  <li>
+    <p>Start a container from the builder image with the application source injected into a known directory</p>
+  </li>
+  <li>
+    <p>The container process transforms that source code into the appropriate runnable setup - in this case, by installing dependencies with Bundler and moving the source code into a directory where Apache has been preconfigured to look for the Ruby config.ru file.</p>
+  </li>
+  <li>
+    <p>Commit the new container and set the image entrypoint to be a script (provided by the builder image) that will start Apache to host the Ruby application.</p>
+  </li>
+</ol>
+
+<p>For compiled languages like C, C++, Go, or Java, the dependencies necessary for compilation might dramatically outweigh the size of the actual runtime artifacts. To keep runtime images slim, S2I enables a multiple-step build processes, where a binary artifact such as an executable or Java WAR file is created in the first builder image, extracted, and injected into a second runtime image that simply places the executable in the correct location for execution.</p>
+
+<p>For example, to create a reproducible build pipeline for Tomcat (the popular Java webserver) and Maven:</p>
+
+<ol>
+  <li>
+    <p>Create a builder image containing OpenJDK and Tomcat that expects to have a WAR file injected</p>
+  </li>
+  <li>
+    <p>Create a second image that layers on top of the first image Maven and any other standard dependencies, and expects to have a Maven project injected</p>
+  </li>
+  <li>
+    <p>Invoke source-to-image using the Java application source and the Maven image to create the desired application WAR</p>
+  </li>
+  <li>
+    <p>Invoke source-to-image a second time using the WAR file from the previous step and the initial Tomcat image to create the runtime image</p>
+  </li>
+</ol>
+
+<p>By placing our build logic inside of images, and by combining the images into multiple steps, we can keep our runtime environment close to our build environment (same JDK, same Tomcat JARs) without requiring build tools to be deployed to production.</p>
+
+:ET

@@ -1,0 +1,30 @@
+I"ù
+<p>If you open the <em>ostoy-fe-deployment.yaml</em> you will see we are defining:</p>
+
+<ul>
+  <li>Persistent Volume Claim</li>
+  <li>Deployment Object</li>
+  <li>Service</li>
+  <li>Route</li>
+  <li>Configmaps</li>
+  <li>Secrets</li>
+</ul>
+
+<p>In your command line deploy the frontend along with creating all objects mentioned above by entering:</p>
+
+<p><code class="language-plaintext highlighter-rouge">oc apply -f ostoy-fe-deployment.yaml</code></p>
+
+<p>You should see all objects created successfully</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>oc apply <span class="nt">-f</span> ostoy-fe-deployment.yaml
+persistentvolumeclaim/ostoy-pvc created
+deployment.apps/ostoy-frontend created
+service/ostoy-frontend-svc created
+route.route.openshift.io/ostoy-route created
+configmap/ostoy-configmap-env created
+secret/ostoy-secret-env created
+configmap/ostoy-configmap-files created
+secret/ostoy-secret created
+</code></pre></div></div>
+
+:ET

@@ -1,0 +1,12 @@
+I"ö
+<p>In your command line deploy the microservice using the following command:</p>
+
+<p><code class="language-plaintext highlighter-rouge">oc apply -f ostoy-microservice-deployment.yaml</code></p>
+
+<p>You should see the following response:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ oc apply -f ostoy-microservice-deployment.yaml
+deployment.apps/ostoy-microservice created
+service/ostoy-microservice-svc created
+</code></pre></div></div>
+
+:ET
