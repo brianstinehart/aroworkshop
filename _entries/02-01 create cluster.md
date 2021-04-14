@@ -7,7 +7,7 @@ parent-id: lab-ratingapp
 
 ### Access your Azure Red Hat OpenShift Cluster
 
-We'll start by getting into our individual clusters.
+We'll start by getting into our cluster.
 
 ## Connect to the cluster
 
