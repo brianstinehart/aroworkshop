@@ -5,49 +5,27 @@ title: Create Project
 parent-id: lab-ratingapp
 ---
 
-### Login to the web console
-
-{% collapsible %}
-
-Each Azure Red Hat OpenShift cluster has a public hostname that hosts the OpenShift Web Console.
-
-You can use command `az aro list` to list the clusters in your current Azure subscription.
-
-```sh
-az aro list -o table
-```
-
-You should get back something like `https://console-openshift-console.apps.rt80g8x5.eastus.aroapp.io` under the URL column. 
-
-![Azure Cloud Shell ARO URL](media/aro-url.png)
-
-If you click on this like or paste into a browser you'll be asked to login to the OpenShift Container Platform console. Use the `kubeadminUsername` and `kubeadminPassword` from previous exercise.
-
-> **Note** These credentials were gathered in step "2.2 Connect to the cluster"
-
-After logging in, you should be able to see the Azure Red Hat OpenShift Web Console.
-
-![Azure Red Hat OpenShift Web Console](media/openshift-webconsole.png)
-
-{% endcollapsible %}
-
 ### Retrieve the login command and token
 
 {% collapsible %}
-
-> **Note** Make sure you complete the [prerequisites](#prereq) to install the OpenShift CLI on the Azure Cloud Shell.
 
 Once you're logged into the Web Console, click on the username on the top right, then click **Copy Login Command**.
 
 ![Copy login command link](media/login-command.png)
 
+> **Note** Some browsers may take you back to the initial OpenShift login screen where you will need select the RHPDS-AAD icon once more.
+
 Click **Display Token**, then copy the command in the section **Log in with this token**.
+
+![Display token](media/token.png)
 
 ![Copy login command screen](media/login-command2.png)
 
-Open the [Azure Cloud Shell](https://shell.azure.com) and paste the login command. You should be able to connect to the cluster.
+Take this login command and paste it into the SSH session we started on the jump host earlier in the prerequisites section.
 
-![Login through the cloud shell](media/oc-login-cloudshell.png)
+![OC Login through jump host](media/oc-login.png)
+
+We are now connected to our OpenShift cluster through the jump host.
 
 {% endcollapsible %}
 
@@ -55,11 +33,13 @@ Open the [Azure Cloud Shell](https://shell.azure.com) and paste the login comman
 
 {% collapsible %}
 
-A project allows a community of users to organize and manage their content in isolation from other communities.
+A project allows a community of users to organize and manage their content in isolation from other communities. To create a new project we run the `oc new-project` command followed by the name of the project we would like to create. 
 
 ```sh
-oc new-project workshop
+oc new-project workshop<student#>
 ```
+
+For example, if you are student 15, the command would be `oc new-project workshop15`
 
 ![Create new project](media/oc-newproject.png)
 

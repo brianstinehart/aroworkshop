@@ -8,11 +8,9 @@ parent-id: lab-ratingapp
 ### Create MongoDB from template
 
 {% collapsible %}
-Azure Red Hat OpenShift provides a container image and template to make creating a new MongoDB database service easy. The template provides parameter fields to define all the mandatory environment variables (user, password, database name, etc) with predefined defaults including auto-generation of password values. It will also define both a deployment configuration and a service.
+Azure Red Hat OpenShift provides many container images and templates to make creating new applications & services easy. The template provides parameter fields to define all the mandatory environment variables (user, password, database name, etc) with predefined defaults including auto-generation of password values. It will also define both a deployment configuration and a service.
 
-There are two templates available:
-
-* `mongodb-ephemeral` is for development/testing purposes only because it uses ephemeral storage for the database content. This means that if the database pod is restarted for any reason, such as the pod being moved to another node or the deployment configuration being updated and triggering a redeploy, all data will be lost.
+For this exercise we will use the following template:
 
 * `mongodb-persistent` uses a persistent volume store for the database data which means the data will survive a pod restart. Using persistent volumes requires a persistent volume pool be defined in the Azure Red Hat OpenShift deployment.
 
@@ -31,7 +29,11 @@ oc process openshift//mongodb-persistent \
     -p MONGODB_ADMIN_PASSWORD=ratingspassword | oc create -f -
 ```
 
-If you now head back to the web console and navigate to **Workloads > Deployment Configs**, you should see a new entry for mongoDB. Make sure you select **Project: workshop** near the top of the page as well, if you have not already done so.
+This is what you should see in your console:
+
+![oc MongoDB](media/oc-mongodb.png)
+
+If you now head back to the web console and make sure you are in the **workshop<student#>** project, you should see a new entry for MongoDB.
 
 ![MongoDB deployment](media/mongodb-overview.png)
 
@@ -41,13 +43,13 @@ If you now head back to the web console and navigate to **Workloads > Deployment
 
 {% collapsible %}
 
-Run the `oc status` command to view the status of the new application and verify if the deployment of the mongoDB template was successful.
+Run the `oc get all` command to view the status of the new application and verify if the deployment of the MongoDB template was successful.
 
 ```sh
-oc status
+oc get all
 ```
 
-![oc status](media/oc-status-mongodb.png)
+![oc get all](media/oc-status-mongodb.png)
 
 {% endcollapsible %}
 
@@ -63,9 +65,9 @@ oc get svc mongodb
 
 ![oc get svc](media/oc-get-svc-mongo.png)
 
-The service will be accessible at the following DNS name: `mongodb.workshop.svc.cluster.local` which is formed of `[service name].[project name].svc.cluster.local`. This resolves only within the cluster.
+The service will be accessible at the following DNS name: `mongodb.workshop<student#>.svc.cluster.local` which is formed of `[service name].[project name].svc.cluster.local`. This resolves only within the cluster.
 
-You can also retrieve this from the web console by going to **. You'll need this hostname to configure the `rating-api`.
+You can also retrieve this from the web console by toggling to the **Administrator** view, then navigating to **Networking -> Services** and selecting the mongodb service. You'll need this hostname to configure the `rating-api`.
 
 ![MongoDB service in the Web Console](media/mongo-svc-webconsole.png)
 

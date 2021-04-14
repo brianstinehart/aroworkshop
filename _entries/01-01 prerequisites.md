@@ -5,90 +5,22 @@ title: Prerequisites
 parent-id: intro
 ---
 
-### Azure subscription and Azure Red Hat OpenShift environment
 
-{% collapsible %}
-
-If you have been provided with a Microsoft Hands-on Labs environment for this workshop through a registration link and an activation code, please continue to registration and activate the lab.
-
-![Registration](media/managedlab/0-registration.png)
-
-After you complete the registration, click Launch Lab
-
-![Launch lab](media/managedlab/1-launchlab.png)
-
-The Azure subscription and associated lab credentials will be provisioned. This will take a few moments. This process will also provision an Azure Red Hat OpenShift cluster.
-
-![Preparing lab](media/managedlab/2-preparinglab.png)
-
-Once the environment is provisioned, a screen with all the appropriate lab credentials will be presented. Additionally, you'll have your Azure Red Hat OpenShift cluster endpoint. The credentials will also be emailed to the email address entered at registration.
-
-![Credentials](media/managedlab/3-credentials.png)
-
-You can now skip the **Create cluster** section and jump to [create project](#createproject).
-
-{% endcollapsible %}
-
-### Tools
-
-#### Azure Cloud Shell
-
-You can use the Azure Cloud Shell accessible at <https://shell.azure.com> once you login with an Azure subscription.
-
-{% collapsible %}
-
-Head over to <https://shell.azure.com> and sign in with your Azure Subscription details.
-
-Select **Bash** as your shell.
-
-![Select Bash](media/cloudshell/0-bash.png)
-
-Select **Show advanced settings**
-
-![Select show advanced settings](media/cloudshell/1-mountstorage-advanced.png)
-
-Set the **Storage account** and **File share** names to your resource group name (all lowercase, without any special characters). Leave other settings unchanged, then hit **Create storage**
-
-![Azure Cloud Shell](media/cloudshell/2-storageaccount-fileshare.png)
-
-You should now have access to the Azure Cloud Shell
-
-![Set the storage account and fileshare names](media/cloudshell/3-cloudshell.png)
-
-{% endcollapsible %}
-
-#### OpenShift CLI (oc)
-
-You'll need to download the **latest OpenShift CLI (oc)** client tools for OpenShift 4.3. You can follow the steps below on the Azure Cloud Shell.
-
-{% collapsible %}
-
-> **Note** You'll need to change the link below to the latest link you get from the page.
-> ![GitHub release links](media/github-oc-release.png)
-
-Please run following commands on Azure Cloud Shell to download and setup the OpenShift client.
-
-```sh
-cd ~
-wget https://mirror.openshift.com/pub/openshift-v4/clients/ocp/latest/openshift-client-linux.tar.gz
-
-mkdir openshift
-
-tar -zxvf openshift-client-linux.tar.gz -C openshift
-
-echo 'export PATH=$PATH:~/openshift' >> ~/.bashrc && source ~/.bashrc
-
-```
-
-The OpenShift CLI (oc) is now installed.
-
-In case you want to work from your own operating system, here are the links to the different versions of CLI:
-
-- https://mirror.openshift.com/pub/openshift-v4/clients/ocp/latest/openshift-client-windows.zip
-- https://mirror.openshift.com/pub/openshift-v4/clients/ocp/latest/openshift-client-linux.tar.gz
-- https://mirror.openshift.com/pub/openshift-v4/clients/ocp/latest/openshift-client-mac.tar.gz
-
-{% endcollapsible %}
 
 #### GitHub Account
-You'll need a personal GitHub account. You can sign up for free [here](https://github.com/join).
+You will need for today's workshop is a personal GitHub account. If you don't already have one, you can sign up for free [here](https://github.com/join).
+
+#### SSH Client
+You will also need a client to SSH into a jumphost for command line access. Linux and Mac systems tend to have one included, and one of the most popular clients for Windows is PuTTY that you can download [here](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html).
+
+#### Lab Setup
+Along with the web interface, we will be running commands directly against our cluster using a jump host. The SSH client mentioned above will be used to establish an SSH session to that jump host, and the diagram below provides a visual of how this hangs together.
+
+![Diagram](media/diagram.png)
+
+#### SSH Session
+So our first step will be to SSH into the jump host. Details will be provided by the instructor providing the command to run and the required password.
+
+It will look similar to this: **ssh student01@3.104.30...**
+
+![Jump host SSH](media/jumpssh.png)

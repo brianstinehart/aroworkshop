@@ -1,8 +1,9 @@
 full_rebuild: true
-name: "Brian's OCP Monster"
+name: "Red Hat OCP Workshop"
 tracking: "ocpworkshop"
 author: brianstinehart
 encoding: utf-8
+host: 0.0.0.0
 defaults:
   -
     values:

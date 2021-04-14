@@ -5,29 +5,6 @@ title: Application Deployment
 parent-id: lab-clusterapp
 ---
 
-### Retrieve login command
-
-If not logged in via the CLI, click on the dropdown arrow next to your name in the top-right and select *Copy Login Command*.
-
-{% collapsible %}
-
-![CLI Login](/media/managedlab/7-ostoy-login.png)
-
-Then go to your terminal and paste that command and press enter.  You will see a similar confirmation message if you successfully logged in.
-
-```sh
-$ oc login https://openshift.abcd1234.eastus.azmosa.io --token=hUXXXXXX
-Logged into "https://openshift.abcd1234.eastus.azmosa.io:443" as "okashi" using the token provided.
-
-You have access to the following projects and can switch between them with 'oc project <projectname>':
-
-    aro-demo
-  * aro-shifty
-  ...
-```
-
-{% endcollapsible %}
-
 ### Create new project
 
 Create a new project called "OSToy" in your cluster.
@@ -36,22 +13,24 @@ Create a new project called "OSToy" in your cluster.
 
 Use the following command
 
-`oc new-project ostoy`
+`oc new-project ostoy<student#>`
 
 You should receive the following response
 
 ```sh
-$ oc new-project ostoy
-Now using project "ostoy" on server "https://openshift.abcd1234.eastus.azmosa.io:443".
+$ oc new-project ostoy<student#>
+Now using project "ostoy<student#>" on server "https://api.gz49n8jb.westeurope.aroapp.io:6443".
 
 You can add applications to this project with the 'new-app' command. For example, try:
 
-    oc new-app centos/ruby-25-centos7~https://github.com/sclorg/ruby-ex.git
+    oc new-app rails-postgresql-example
 
-to build a new example application in Ruby.
+to build a new example application in Ruby. Or use kubectl to deploy a simple Kubernetes application:
+
+    kubectl create deployment hello-node --image=k8s.gcr.io/serve_hostname
 ```
 
-Equivalently you can also create this new project using the web UI by selecting "Application Console" at the top  then clicking on "+Create Project" button on the right.
+Equivalently, you can also create this new project using the web UI by selecting **Home -> Projects**, then clicking on the **Create Project** button on the right.
 
 ![UI Create Project](/media/managedlab/6-ostoy-newproj.png)
 
@@ -59,7 +38,11 @@ Equivalently you can also create this new project using the web UI by selecting 
 
 ### Download YAML configuration
 
-Download the Kubernetes deployment object yamls from the following locations to your Azure Cloud Shell, in a directory of your choosing (just remember where you placed them for the next step).
+Download the Kubernetes deployment object yamls from the following locations to jump host to a directory of your choosing - just remember where you placed them for the next step.
+
+`wget http://aroworkshop.io/yaml/ostoy-fe-deployment.yaml`
+
+`wget http://aroworkshop.io/yaml/ostoy-microservice-deployment.yaml`
 
 {% collapsible %}
 
@@ -134,11 +117,11 @@ Get the route so that we can access the application via `oc get route`
 You should see the following response:
 
 ```sh
-NAME           HOST/PORT                                                      PATH      SERVICES              PORT      TERMINATION   WILDCARD
-ostoy-route   ostoy-route-ostoy.apps.abcd1234.eastus.azmosa.io             ostoy-frontend-svc   <all>                   None
+NAME          HOST/PORT                                                      PATH      SERVICES              PORT      TERMINATION   WILDCARD
+ostoy-route   ostoy-route-ostoy01.apps.qv4g35sq.westeurope.aroapp.io                   ostoy-frontend-svc    <all>                   None
 ```
 
-Copy `ostoy-route-ostoy.apps.abcd1234.eastus.azmosa.io` above and paste it into your browser and press enter.  You should see the homepage of our application.
+Copy `ostoy-route-ostoy<student#>.apps.qv4g35sq.westeurope.aroapp.io` from the command line and paste it into your browser and press enter.  You should see the homepage of our application.
 
 ![Home Page](/media/managedlab/10-ostoy-homepage.png)
 
