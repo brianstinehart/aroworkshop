@@ -8,7 +8,7 @@ parent-id: intro
 
 
 #### GitHub Account
-You will need for today's workshop is a personal GitHub account. If you don't already have one, you can sign up for free [here](https://github.com/join).
+You will need a personal GitHub account for today's workshop. If you don't already have one, you can sign up for free [here](https://github.com/join).
 
 #### SSH Client
 You will also need a client to SSH into a jumphost for command line access. Linux and Mac systems tend to have one included, and one of the most popular clients for Windows is PuTTY that you can download [here](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html).
