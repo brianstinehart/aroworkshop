@@ -1,0 +1,106 @@
+I"�<p>In this section we’ll take a look at how OSToy can be configured using <a href="https://docs.openshift.com/container-platform/3.11/dev_guide/configmaps.html">ConfigMaps</a>, <a href="https://docs.openshift.com/container-platform/3.11/dev_guide/secrets.html">Secrets</a>, and <a href="https://docs.openshift.com/container-platform/3.11/dev_guide/environment_variables.html">Environment Variables</a>.  This section won’t go into details explaining each (the links above are for that), but will show you how they are exposed to the application.</p>
+
+<h3 id="configuration-using-configmaps">Configuration using ConfigMaps</h3>
+
+<p>ConfigMaps allow you to decouple configuration artifacts from container image content to keep containerized applications portable.</p>
+
+<!-- Begin collapsible container div -->
+<div class="collapsible-content-container">
+  <!-- Begin collapsible container button -->
+  <button class="toggle-collapsible">Toggle</button>
+  <!-- Begin collapsible container content div -->
+  <div class="collapsible-content">
+    <!-- Begin parsedText -->
+    
+<p>Click on <em>Config Maps</em> in the left menu.</p>
+
+<p>This will display the contents of the configmap available to the OSToy application.  We defined this in the <code class="language-plaintext highlighter-rouge">ostoy-fe-deployment.yaml</code> here:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: ostoy-configmap-files
+data:
+  config.json:  <span class="s1">'{ "default": "123" }'</span>
+</code></pre></div></div>
+
+
+    <!-- End parsedText -->
+  </div>
+  <!-- End collapsible container content div -->
+</div>
+<!-- End collapsible container div -->
+
+<h3 id="configuration-using-secrets">Configuration using Secrets</h3>
+
+<p>Kubernetes Secret objects allow you to store and manage sensitive information, such as passwords, OAuth tokens, and ssh keys. Putting this information in a secret is safer and more flexible than putting it, verbatim, into a Pod definition or a container image.</p>
+
+<!-- Begin collapsible container div -->
+<div class="collapsible-content-container">
+  <!-- Begin collapsible container button -->
+  <button class="toggle-collapsible">Toggle</button>
+  <!-- Begin collapsible container content div -->
+  <div class="collapsible-content">
+    <!-- Begin parsedText -->
+    
+<p>Click on <em>Secrets</em> in the left menu.</p>
+
+<p>This will display the contents of the secrets available to the OSToy application.  We defined this in the <code class="language-plaintext highlighter-rouge">ostoy-fe-deployment.yaml</code> here:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>apiVersion: v1
+kind: Secret
+metadata:
+  name: ostoy-secret
+data:
+  secret.txt: VVNFUk5BTUU9bXlfdXNlcgpQQVNTV09SRD1AT3RCbCVYQXAhIzYzMlk1RndDQE1UUWsKU01UUD1sb2NhbGhvc3QKU01UUF9QT1JUPTI1
+<span class="nb">type</span>: Opaque
+</code></pre></div></div>
+
+
+    <!-- End parsedText -->
+  </div>
+  <!-- End collapsible container content div -->
+</div>
+<!-- End collapsible container div -->
+
+<h3 id="configuration-using-environment-variables">Configuration using Environment Variables</h3>
+
+<p>Using environment variables is an easy way to change application behavior without requiring code changes. It allows different deployments of the same application to potentially behave differently based on the environment variables, and OpenShift makes it simple to set, view, and update environment variables for Pods/Deployments.</p>
+
+<!-- Begin collapsible container div -->
+<div class="collapsible-content-container">
+  <!-- Begin collapsible container button -->
+  <button class="toggle-collapsible">Toggle</button>
+  <!-- Begin collapsible container content div -->
+  <div class="collapsible-content">
+    <!-- Begin parsedText -->
+    
+<p>Click on <em>ENV Variables</em> in the left menu.</p>
+
+<p>This will display the environment variables available to the OSToy application.  We added three as defined in the deployment spec of <code class="language-plaintext highlighter-rouge">ostoy-fe-deployment.yaml</code> here:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nb">env</span>:
+  - name: ENV_TOY_CONFIGMAP
+    valueFrom:
+      configMapKeyRef:
+        name: ostoy-configmap-env
+        key: ENV_TOY_CONFIGMAP
+  - name: ENV_TOY_SECRET
+    valueFrom:
+      secretKeyRef:
+        name: ostoy-secret-env
+        key: ENV_TOY_SECRET
+  - name: MICROSERVICE_NAME
+    value: OSTOY_MICROSERVICE_SVC
+</code></pre></div></div>
+
+<p>The last one, <code class="language-plaintext highlighter-rouge">MICROSERVICE_NAME</code> is used for the intra-cluster communications between pods for this application.  The application looks for this environment variable to know how to access the microservice in order to get the colors.</p>
+
+
+    <!-- End parsedText -->
+  </div>
+  <!-- End collapsible container content div -->
+</div>
+<!-- End collapsible container div -->
+
+:ET

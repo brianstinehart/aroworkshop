@@ -1,0 +1,24 @@
+I"Ò
+<p>Use the following command</p>
+
+<p><code class="language-plaintext highlighter-rouge">oc new-project ostoy&lt;student#&gt;</code></p>
+
+<p>You should receive the following response</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>oc new-project ostoy&lt;student#&gt;
+Now using project <span class="s2">"ostoy&lt;student#&gt;"</span> on server <span class="s2">"https://api.gz49n8jb.westeurope.aroapp.io:6443"</span><span class="nb">.</span>
+
+You can add applications to this project with the <span class="s1">'new-app'</span> command. For example, try:
+
+    oc new-app rails-postgresql-example
+
+to build a new example application <span class="k">in </span>Ruby. Or use kubectl to deploy a simple Kubernetes application:
+
+    kubectl create deployment hello-node <span class="nt">--image</span><span class="o">=</span>k8s.gcr.io/serve_hostname
+</code></pre></div></div>
+
+<p>Equivalently, you can also create this new project using the web UI by selecting <strong>Home -&gt; Projects</strong>, then clicking on the <strong>Create Project</strong> button on the right.</p>
+
+<p><img src="/media/managedlab/6-ostoy-newproj.png" alt="UI Create Project" /></p>
+
+:ET

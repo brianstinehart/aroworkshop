@@ -1,0 +1,196 @@
+I"�+<p>The <code class="language-plaintext highlighter-rouge">rating-api</code> is a NodeJS application that connects to mongoDB to retrieve and rate items. Below are some of the details that you’ll need to deploy this.</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">rating-api</code> on GitHub: <a href="https://github.com/microsoft/rating-api">https://github.com/microsoft/rating-api</a></li>
+  <li>The container exposes port 8080</li>
+  <li>MongoDB connection is configured using an environment variable called <code class="language-plaintext highlighter-rouge">MONGODB_URI</code></li>
+</ul>
+
+<h3 id="fork-the-application-to-your-own-github-repository">Fork the application to your own GitHub repository</h3>
+
+<p>To be able to setup CI/CD webhooks, you’ll need to fork the application into your personal GitHub repository.</p>
+
+<p><a class="github-button" href="https://github.com/microsoft/rating-api/fork" data-icon="octicon-repo-forked" data-size="large" aria-label="Fork microsoft/rating-api on GitHub">Fork</a></p>
+
+<h3 id="use-the-openshift-cli-to-deploy-the-rating-api">Use the OpenShift CLI to deploy the <code class="language-plaintext highlighter-rouge">rating-api</code></h3>
+
+<blockquote>
+  <p><strong>Note</strong> You’re going to be using <a href="#source-to-image-s2i">source-to-image (S2I)</a> as a build strategy.</p>
+</blockquote>
+
+<!-- Begin collapsible container div -->
+<div class="collapsible-content-container">
+  <!-- Begin collapsible container button -->
+  <button class="toggle-collapsible">Toggle</button>
+  <!-- Begin collapsible container content div -->
+  <div class="collapsible-content">
+    <!-- Begin parsedText -->
+    
+<p>We’ll now deploy the <code class="language-plaintext highlighter-rouge">rating-api</code> app. <strong>Don’t miss the entry in the following command where we need you to add your GitHub username</strong>.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>oc new-app https://github.com/&lt;your GitHub username&gt;/rating-api <span class="nt">--strategy</span><span class="o">=</span><span class="nb">source</span>
+</code></pre></div></div>
+
+<p><img src="media/oc-newapp-ratingapi.png" alt="Create rating-api using oc cli" /></p>
+
+
+    <!-- End parsedText -->
+  </div>
+  <!-- End collapsible container content div -->
+</div>
+<!-- End collapsible container div -->
+
+<h3 id="configure-the-required-environment-variables">Configure the required environment variables</h3>
+
+<!-- Begin collapsible container div -->
+<div class="collapsible-content-container">
+  <!-- Begin collapsible container button -->
+  <button class="toggle-collapsible">Toggle</button>
+  <!-- Begin collapsible container content div -->
+  <div class="collapsible-content">
+    <!-- Begin parsedText -->
+    
+<p>First we’ll need to get to the correct screen. Ensure you’re in the <strong>Administrator</strong> view, then navigate to <strong>Workloads -&gt; Deployments</strong>, selecting <strong>rating-api</strong>, and move to the <strong>Environment</strong> tab.</p>
+
+<p><img src="media/rating-api-envvars-navigate.png" alt="Navigate to create MONGODB_URI environment variable" /></p>
+
+<p>We can now create the environment variable using the NAME <code class="language-plaintext highlighter-rouge">MONGODB_URI</code>. The VALUE should look like <code class="language-plaintext highlighter-rouge">mongodb://[username]:[password]@[endpoint]:27017/ratingsdb</code>. You’ll need to replace the <code class="language-plaintext highlighter-rouge">[username]</code> and <code class="language-plaintext highlighter-rouge">[password]</code> with the ones you used when creating the database. You’ll also need to replace the <code class="language-plaintext highlighter-rouge">[endpoint]</code> with the hostname acquired in the previous step.</p>
+
+<blockquote>
+  <p><strong>Note</strong> Don’t miss replacing your student number in the following VALUE entry.</p>
+</blockquote>
+
+<p>The VALUE should look something like this: <strong>mongodb://ratingsuser:ratingspassword@mongodb.workshop&lt;student#&gt;.svc.cluster.local:27017/ratingsdb</strong></p>
+
+<p>Hit <strong>Save</strong> when done.</p>
+
+<p><img src="media/rating-api-envvars.png" alt="Create a MONGODB_URI environment variable" /></p>
+
+<p>It can also be done with an OC command.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>oc set env deploy/rating-api MONGODB_URI=mongodb://ratingsuser:ratingspassword@mongodb.workshop&lt;student#&gt;.svc.cluster.local:27017/ratingsdb
+</code></pre></div></div>
+
+
+    <!-- End parsedText -->
+  </div>
+  <!-- End collapsible container content div -->
+</div>
+<!-- End collapsible container div -->
+
+<h3 id="verify-that-the-service-is-running">Verify that the service is running</h3>
+
+<!-- Begin collapsible container div -->
+<div class="collapsible-content-container">
+  <!-- Begin collapsible container button -->
+  <button class="toggle-collapsible">Toggle</button>
+  <!-- Begin collapsible container content div -->
+  <div class="collapsible-content">
+    <!-- Begin parsedText -->
+    
+<p>You can navigate to the logs of the <code class="language-plaintext highlighter-rouge">rating-api</code> deployment by going <strong>Workloads -&gt; Pods</strong> and selecting the  <strong>rating-api</strong> pod that is currently <strong>running</strong>,</p>
+
+<p><img src="media/rating-api-navigate.png" alt="Navigate to verify mongoDB connection" /></p>
+
+<p>If you move to the <strong>Logs</strong> tab, you should see a log message confirming the code can successfully connect to the MongoDB.</p>
+
+<p><img src="media/rating-api-working.png" alt="Verify mongoDB connection" /></p>
+
+
+    <!-- End parsedText -->
+  </div>
+  <!-- End collapsible container content div -->
+</div>
+<!-- End collapsible container div -->
+
+<h3 id="retrieve-rating-api-service-hostname">Retrieve <code class="language-plaintext highlighter-rouge">rating-api</code> service hostname</h3>
+
+<!-- Begin collapsible container div -->
+<div class="collapsible-content-container">
+  <!-- Begin collapsible container button -->
+  <button class="toggle-collapsible">Toggle</button>
+  <!-- Begin collapsible container content div -->
+  <div class="collapsible-content">
+    <!-- Begin parsedText -->
+    
+<p>Find the <code class="language-plaintext highlighter-rouge">rating-api</code> service.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>oc get svc rating-api
+</code></pre></div></div>
+
+<p>Once you replace your student name in the following, the service will be accessible at this DNS name over port 8080: <code class="language-plaintext highlighter-rouge">rating-api.workshop&lt;student#&gt;.svc.cluster.local:8080</code> which is formed of <code class="language-plaintext highlighter-rouge">[service name].[project name].svc.cluster.local</code>. This resolves only within the cluster.</p>
+
+
+    <!-- End parsedText -->
+  </div>
+  <!-- End collapsible container content div -->
+</div>
+<!-- End collapsible container div -->
+
+<h3 id="setup-github-webhook">Setup GitHub webhook</h3>
+
+<p>To trigger S2I builds when you push code into your GitHub repo, you’ll need to setup the GitHub webhook.</p>
+
+<!-- Begin collapsible container div -->
+<div class="collapsible-content-container">
+  <!-- Begin collapsible container button -->
+  <button class="toggle-collapsible">Toggle</button>
+  <!-- Begin collapsible container content div -->
+  <div class="collapsible-content">
+    <!-- Begin parsedText -->
+    
+<p>The easiest way to access the URL needed to create the webhook in GitHub is through the web console. If you navigate to <strong>Builds -&gt; Build Configs</strong> and selecting <strong>rating-api</strong>, you will see the copy option for the GitHub webhook URL near the bottom of the page. You’ll use this copied URL to setup the webhook on your GitHub repository.</p>
+
+<p><img src="media/rating-api-github-webhook-url-console.png" alt="Rating API GitHub webhook URL" /></p>
+
+<p>If you prefer to use the command line, start by retrieving the GitHub webhook trigger secret. This is incldued if you copy from the web console, but you’ll need to gather it separately for use the GitHub webhook URL if you use the command line.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>oc get bc/rating-api <span class="nt">-o</span><span class="o">=</span><span class="nv">jsonpath</span><span class="o">=</span><span class="s1">'{.spec.triggers..github.secret}'</span>
+</code></pre></div></div>
+
+<p>You’ll get back something similar to the below. Make note the secret key in the red box as you’ll need it in a few steps.</p>
+
+<p><img src="media/rating-api-github-secret.png" alt="Rating API GitHub trigger secret" /></p>
+
+<p>Retrieve the GitHub webhook trigger URL from the build configuration.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>oc describe bc/rating-api
+</code></pre></div></div>
+
+<p><img src="media/rating-api-github-webhook-url.png" alt="Rating API GitHub trigger url" /></p>
+
+<p>Replace the <code class="language-plaintext highlighter-rouge">&lt;secret&gt;</code> placeholder with the secret you retrieved in the previous step to have a URL similar to <code class="language-plaintext highlighter-rouge">https://api.qv4g35sq.westeurope.aroapp.io:6443/apis/build.openshift.io/v1/namespaces/workshop01/buildconfigs/rating-api/webhooks/zLKX0A_0CQs6qWNwQqpV/github</code>. You’ll use this URL to setup the webhook on your GitHub repository.</p>
+
+<p>In your GitHub repository (e.g. https://github.com/<your GitHub="" username="">/rating-api), navigate to **Settings -&gt; Webhooks** and select **Add Webhook**.</your></p>
+
+<p><img src="media/rating-api-github-webhook-navigation.png" alt="Rating API GitHub webhook navigation" /></p>
+
+<p>Paste the URL output (similar to above) into the <strong>Payload URL</strong> field.</p>
+
+<p>Change the Content Type from GitHub’s default <strong>application/x-www-form-urlencoded</strong> to <strong>application/json</strong>.</p>
+
+<p>Click <strong>Add webhook</strong>.</p>
+
+<p><img src="media/rating-api-github-addwebhook.png" alt="GitHub add webhook" /></p>
+
+<p>If you click back into the newly created webhook, you should see a message from at the bottom with a green tick under <strong>Recent Deliveries</strong>.</p>
+
+<p><img src="media/rating-api-webhook-success.png" alt="GitHub webhook success" /></p>
+
+<p>Now whenever you push a change to your GitHub repository a new build will automatically start in OpenShift. After a successful build, a new deployment will be triggered as well.</p>
+
+
+    <!-- End parsedText -->
+  </div>
+  <!-- End collapsible container content div -->
+</div>
+<!-- End collapsible container div -->
+
+<blockquote>
+  <p><strong>Resources</strong></p>
+  <ul>
+    <li><a href="https://docs.openshift.com/aro/creating_images/s2i.html">ARO Documentation - Creating Images with S2I</a></li>
+    <li><a href="https://docs.openshift.com/aro/dev_guide/builds/triggering_builds.html">ARO Documentation - Triggering builds</a></li>
+  </ul>
+</blockquote>
+:ET

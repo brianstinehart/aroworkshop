@@ -1,0 +1,23 @@
+I"
+<p>First we’ll need to get to the correct screen. Ensure you’re in the <strong>Administrator</strong> view, then navigate to <strong>Workloads -&gt; Deployments</strong>, selecting <strong>rating-api</strong>, and move to the <strong>Environment</strong> tab.</p>
+
+<p><img src="media/rating-api-envvars-navigate.png" alt="Navigate to create MONGODB_URI environment variable" /></p>
+
+<p>We can now create the environment variable using the NAME <code class="language-plaintext highlighter-rouge">MONGODB_URI</code>. The VALUE should look like <code class="language-plaintext highlighter-rouge">mongodb://[username]:[password]@[endpoint]:27017/ratingsdb</code>. You’ll need to replace the <code class="language-plaintext highlighter-rouge">[username]</code> and <code class="language-plaintext highlighter-rouge">[password]</code> with the ones you used when creating the database. You’ll also need to replace the <code class="language-plaintext highlighter-rouge">[endpoint]</code> with the hostname acquired in the previous step.</p>
+
+<blockquote>
+  <p><strong>Note</strong> Don’t miss replacing your student number in the following VALUE entry.</p>
+</blockquote>
+
+<p>The VALUE should look something like this: <strong>mongodb://ratingsuser:ratingspassword@mongodb.workshop&lt;student#&gt;.svc.cluster.local:27017/ratingsdb</strong></p>
+
+<p>Hit <strong>Save</strong> when done.</p>
+
+<p><img src="media/rating-api-envvars.png" alt="Create a MONGODB_URI environment variable" /></p>
+
+<p>It can also be done with an OC command.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>oc set env deploy/rating-api MONGODB_URI=mongodb://ratingsuser:ratingspassword@mongodb.workshop&lt;student#&gt;.svc.cluster.local:27017/ratingsdb
+</code></pre></div></div>
+
+:ET
