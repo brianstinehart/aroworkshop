@@ -6,7 +6,9 @@ type: nocount
 is-parent: yes
 ---
 
-The following people have contributed to this workshop, thanks!
+A big thank you to the team at Microsoft for providing the base content for us to work with.
+
+The following people have contributed to this workshop. Thanks!
 
 <div class="github-contributors">
 {% githubauthor brianstinehart %}
