@@ -1,9 +1,0 @@
-I"‡
-<p>Find the <code class="language-plaintext highlighter-rouge">rating-api</code> service.</p>
-
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>oc get svc rating-api
-</code></pre></div></div>
-
-<p>Once you replace your student name in the following, the service will be accessible at this DNS name over port 8080: <code class="language-plaintext highlighter-rouge">rating-api.workshop&lt;student#&gt;.svc.cluster.local:8080</code> which is formed of <code class="language-plaintext highlighter-rouge">[service name].[project name].svc.cluster.local</code>. This resolves only within the cluster.</p>
-
-:ET

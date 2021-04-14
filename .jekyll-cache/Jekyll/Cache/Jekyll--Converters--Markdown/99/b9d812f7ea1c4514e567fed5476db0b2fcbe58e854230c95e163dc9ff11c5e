@@ -1,6 +1,0 @@
-I"�
-<p>Using an ImageStream makes it easy to change a tag for a container image.  Otherwise to change a tag you need to download the whole image, change it locally, then push it all back. Also promoting applications by having to do that to change the tag and then update the deployment object entails many steps.  With ImageStreams you upload a container image once and then you manage it’s virtual tags internally in OpenShift.  In one project you may use the <code class="language-plaintext highlighter-rouge">dev</code> tag and only change reference to it internally, in prod you may use a <code class="language-plaintext highlighter-rouge">prod</code> tag and also manage it internally. You don’t really have to deal with the registry!</p>
-
-<p>You can also use ImageStreams in conjuction with DeploymentConfigs to set a trigger that will start a deployment as soon as a new image appears or a tag changes its reference.</p>
-
-:ET
