@@ -29,7 +29,7 @@ OSToy is a simple Node.js application that we will deploy to Azure Red Hat OpenS
 
 ### OSToy Application Diagram
 
-![OSToy Diagram](/media/managedlab/4-ostoy-arch.png)
+![OSToy Diagram](media/managedlab/4-ostoy-arch.png)
 
 ### Familiarization with the Application UI
 
@@ -42,5 +42,5 @@ OSToy is a simple Node.js application that we will deploy to Azure Red Hat OpenS
 7. **Networking:** Tools to illustrate networking within the application.
 8. Shows some more information about the application.
 
-![Home Page](/media/managedlab/10-ostoy-homepage-1.png)
+![Home Page](media/managedlab/10-ostoy-homepage-1.png)
 

@@ -9,11 +9,11 @@ Assuming you can access the application via the Route provided and are still log
 
 Click on the *Home* menu item and then click in the message box for "Log Message (stdout)" and write any message you want to output to the *stdout* stream.  You can try "**All is well!**".  Then click "Send Message".
 
-![Logging stdout](/media/managedlab/8-ostoy-stdout.png)
+![Logging stdout](media/managedlab/8-ostoy-stdout.png)
 
 Click in the message box for "Log Message (stderr)" and write any message you want to output to the *stderr* stream. You can try "**Oh no! Error!**".  Then click "Send Message".
 
-![Logging stderr](/media/managedlab/9-ostoy-stderr.png)
+![Logging stderr](media/managedlab/9-ostoy-stderr.png)
 
 ### View logs directly from the pod
 

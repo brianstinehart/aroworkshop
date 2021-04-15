@@ -32,7 +32,7 @@ to build a new example application in Ruby. Or use kubectl to deploy a simple Ku
 
 Equivalently, you can also create this new project using the web UI by selecting **Home -> Projects**, then clicking on the **Create Project** button on the right.
 
-![UI Create Project](/media/managedlab/6-ostoy-newproj.png)
+![UI Create Project](media/managedlab/6-ostoy-newproj.png)
 
 {% endcollapsible %}
 
@@ -123,6 +123,6 @@ ostoy-route   ostoy-route-ostoy01.apps.qv4g35sq.westeurope.aroapp.io            
 
 Copy `ostoy-route-ostoy<student#>.apps.qv4g35sq.westeurope.aroapp.io` from the command line and paste it into your browser and press enter.  You should see the homepage of our application.
 
-![Home Page](/media/managedlab/10-ostoy-homepage.png)
+![Home Page](media/managedlab/10-ostoy-homepage.png)
 
 {% endcollapsible %}
