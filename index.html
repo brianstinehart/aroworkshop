@@ -1322,7 +1322,7 @@ ImageStream and Builds: <a href="https://cloudowski.com/articles/why-managing-co
 
 <h3 id="ostoy-application-diagram">OSToy Application Diagram</h3>
 
-<p><img src="/media/managedlab/4-ostoy-arch.png" alt="OSToy Diagram" /></p>
+<p><img src="media/managedlab/4-ostoy-arch.png" alt="OSToy Diagram" /></p>
 
 <h3 id="familiarization-with-the-application-ui">Familiarization with the Application UI</h3>
 
@@ -1337,7 +1337,7 @@ ImageStream and Builds: <a href="https://cloudowski.com/articles/why-managing-co
   <li>Shows some more information about the application.</li>
 </ol>
 
-<p><img src="/media/managedlab/10-ostoy-homepage-1.png" alt="Home Page" /></p>
+<p><img src="media/managedlab/10-ostoy-homepage-1.png" alt="Home Page" /></p>
 
 
         </section>
@@ -1381,7 +1381,7 @@ to build a new example application <span class="k">in </span>Ruby. Or use kubect
 
 <p>Equivalently, you can also create this new project using the web UI by selecting <strong>Home -&gt; Projects</strong>, then clicking on the <strong>Create Project</strong> button on the right.</p>
 
-<p><img src="/media/managedlab/6-ostoy-newproj.png" alt="UI Create Project" /></p>
+<p><img src="media/managedlab/6-ostoy-newproj.png" alt="UI Create Project" /></p>
 
 
     <!-- End parsedText -->
@@ -1515,7 +1515,7 @@ ostoy-route   ostoy-route-ostoy01.apps.qv4g35sq.westeurope.aroapp.io            
 
 <p>Copy <code class="language-plaintext highlighter-rouge">ostoy-route-ostoy&lt;student#&gt;.apps.qv4g35sq.westeurope.aroapp.io</code> from the command line and paste it into your browser and press enter.  You should see the homepage of our application.</p>
 
-<p><img src="/media/managedlab/10-ostoy-homepage.png" alt="Home Page" /></p>
+<p><img src="media/managedlab/10-ostoy-homepage.png" alt="Home Page" /></p>
 
 
     <!-- End parsedText -->
@@ -1538,11 +1538,11 @@ ostoy-route   ostoy-route-ostoy01.apps.qv4g35sq.westeurope.aroapp.io            
 
 <p>Click on the <em>Home</em> menu item and then click in the message box for “Log Message (stdout)” and write any message you want to output to the <em>stdout</em> stream.  You can try “<strong>All is well!</strong>”.  Then click “Send Message”.</p>
 
-<p><img src="/media/managedlab/8-ostoy-stdout.png" alt="Logging stdout" /></p>
+<p><img src="media/managedlab/8-ostoy-stdout.png" alt="Logging stdout" /></p>
 
 <p>Click in the message box for “Log Message (stderr)” and write any message you want to output to the <em>stderr</em> stream. You can try “<strong>Oh no! Error!</strong>”.  Then click “Send Message”.</p>
 
-<p><img src="/media/managedlab/9-ostoy-stderr.png" alt="Logging stderr" /></p>
+<p><img src="media/managedlab/9-ostoy-stderr.png" alt="Logging stderr" /></p>
 
 <h3 id="view-logs-directly-from-the-pod">View logs directly from the pod</h3>
 
@@ -1602,33 +1602,33 @@ stderr: Oh no! Error!
     
 <p>It would be best to prepare by splitting your screen between the OpenShift Web UI and the OSToy application so that you can see the results of our actions immediately.</p>
 
-<p><img src="/media/managedlab/23-ostoy-splitscreen.png" alt="Splitscreen" /></p>
+<p><img src="media/managedlab/23-ostoy-splitscreen.png" alt="Splitscreen" /></p>
 
 <p>But if your screen is too small or that just won’t work, then open the OSToy application in another tab so you can quickly switch to the OpenShift console once you click the button. To get to this deployment in the OpenShift Web Console go to:</p>
 
 <p><strong>Workloads -&gt; Deployments</strong> and select <strong>ostoy-frontend</strong>.</p>
 
-<p><img src="/media/managedlab/11-ostoy-deploynum.png" alt="Deploy Num" /></p>
+<p><img src="media/managedlab/11-ostoy-deploynum.png" alt="Deploy Num" /></p>
 
 <p>Go to the OSToy app, click on <em>Home</em> in the left menu, and enter a message in the “Crash Pod” tile (e.g. “This is goodbye!”) and press the “Crash Pod” button. This will cause the pod to crash and Kubernetes will restart the pod. After you press the button you will see:</p>
 
-<p><img src="/media/managedlab/12-ostoy-crashmsg.png" alt="Crash Message" /></p>
+<p><img src="media/managedlab/12-ostoy-crashmsg.png" alt="Crash Message" /></p>
 
 <p>Quickly switch to the Deployment screen. You will see that the pod is yellow meaning it is recovering the fallen pad and scaling back to 1. It should quickly come back up and show blue.</p>
 
-<p><img src="/media/managedlab/13-ostoy-podcrash.png" alt="Pod Crash" /></p>
+<p><img src="media/managedlab/13-ostoy-podcrash.png" alt="Pod Crash" /></p>
 
 <p>You can also check in the pod events and further verify that the container has crashed and been restarted.</p>
 
-<p><img src="/media/managedlab/14-ostoy-podevents.png" alt="Pod Events" /></p>
+<p><img src="media/managedlab/14-ostoy-podevents.png" alt="Pod Events" /></p>
 
 <p>Keep the page from the pod events still open from the previous step.  Then in the OSToy app click on the “Toggle Health” button, in the “Toggle Health Status” tile.  You will see the “Current Health” switch to “I’m not feeling all that well”.</p>
 
-<p><img src="/media/managedlab/15-ostoy-togglehealth.png" alt="Pod Events" /></p>
+<p><img src="media/managedlab/15-ostoy-togglehealth.png" alt="Pod Events" /></p>
 
 <p>This will cause the app to stop responding with a “200 HTTP code”. After 3 such consecutive failures, Kubernetes will kill the pod and restart it. Quickly switch back to the pod events tab and you will see that the liveness probe failed and the pod as being restarted.</p>
 
-<p><img src="/media/managedlab/16-ostoy-podevents2.png" alt="Pod Events2" /></p>
+<p><img src="media/managedlab/16-ostoy-podevents2.png" alt="Pod Events2" /></p>
 
 
     <!-- End parsedText -->
@@ -1665,11 +1665,11 @@ stderr: Oh no! Error!
 
 <p>Underneath that, in the “File Contents” box, enter text to be stored in the file. (ie: “Azure Red Hat OpenShift is the greatest thing since sliced bread!” or “test” :) ).  Then click “Create file”.</p>
 
-<p><img src="/media/managedlab/17-ostoy-createfile.png" alt="Create File" /></p>
+<p><img src="media/managedlab/17-ostoy-createfile.png" alt="Create File" /></p>
 
 <p>You will then see the file you created appear above under “Existing files”.  Click on the file and you will see the filename and the contents you entered.</p>
 
-<p><img src="/media/managedlab/18-ostoy-viewfile.png" alt="View File" /></p>
+<p><img src="media/managedlab/18-ostoy-viewfile.png" alt="View File" /></p>
 
 <p>We now want to kill the pod and ensure that the new pod that spins up will be able to see the file we created. Exactly like we did in the previous section. Click on <em>Home</em> in the left menu.</p>
 
@@ -1679,7 +1679,7 @@ stderr: Oh no! Error!
 
 <p>You will see the file you created is still there and you can open it to view its contents to confirm.</p>
 
-<p><img src="/media/managedlab/19-ostoy-existingfile.png" alt="Crash Message" /></p>
+<p><img src="media/managedlab/19-ostoy-existingfile.png" alt="Crash Message" /></p>
 
 <p>Now let’s confirm that it’s actually there by using the CLI and checking if it is available to the container.  If you remember we mounted the directory <code class="language-plaintext highlighter-rouge">/var/demo_files</code> to our PVC.  So get the name of your frontend pod</p>
 
@@ -1850,7 +1850,7 @@ data:
 
 <p>Let’s review how this application is set up…</p>
 
-<p><img src="/media/managedlab/4-ostoy-arch.png" alt="OSToy Diagram" /></p>
+<p><img src="media/managedlab/4-ostoy-arch.png" alt="OSToy Diagram" /></p>
 
 <p>As can be seen in the image above we see we have defined at least 2 separate pods, each with its own service.  One is the frontend web application (with a service and a publicly accessible route) and the other is the backend microservice with a service object created so that the frontend pod can communicate with the microservice (across the pods if more than one).  Therefore this microservice is not accessible from outside this cluster, nor from other namespaces/projects (due to ARO’s network policy, <strong>ovs-networkpolicy</strong>).  The sole purpose of this microservice is to serve internal web requests and return a JSON object containing the current hostname and a randomly generated color string.  This color string is used to display a box with that color displayed in the tile titled “Intra-cluster Communication”.</p>
 
@@ -1888,7 +1888,7 @@ spec:
 
 <p>We will see an IP address returned.  In our example it is <code class="language-plaintext highlighter-rouge">172.30.165.246</code>.  This is the intra-cluster IP address; only accessible from within the cluster.</p>
 
-<p><img src="/media/managedlab/20-ostoy-dns.png" alt="ostoy DNS" /></p>
+<p><img src="media/managedlab/20-ostoy-dns.png" alt="ostoy DNS" /></p>
 
 
     <!-- End parsedText -->
@@ -1942,7 +1942,7 @@ ostoy-microservice-86b4c6f559-p594d   1/1       Running   0          1h
 
 <p>See this visually by visiting the OSToy app and seeing how many boxes you now see.  It should be three.</p>
 
-<p><img src="/media/managedlab/22-ostoy-colorspods.png" alt="UI Scale" /></p>
+<p><img src="media/managedlab/22-ostoy-colorspods.png" alt="UI Scale" /></p>
 
 <p>Now we will scale the pods down using the command line.  Execute the following command from the CLI:</p>
 
@@ -1954,7 +1954,7 @@ ostoy-microservice-86b4c6f559-p594d   1/1       Running   0          1h
 
 <p>Lastly let’s use the web UI to scale back down to one pod.  In the project you created for this app (ie: “ostoy”) in the left menu click <em>Overview &gt; expand “ostoy-microservice”</em>.  On the right you will see a blue circle with the number 2 in the middle. Click on the down arrow to the right of that to scale the number of pods down to 1.</p>
 
-<p><img src="/media/managedlab/21-ostoy-uiscale.png" alt="UI Scale" /></p>
+<p><img src="media/managedlab/21-ostoy-uiscale.png" alt="UI Scale" /></p>
 
 <p>See this visually by visiting the OSToy app and seeing how many boxes you now see.  It should be one.  You can also confirm this via the CLI or the web UI</p>
 
@@ -2004,14 +2004,14 @@ ostoy-microservice-86b4c6f559-p594d   1/1       Running   0          1h
 
 <p>In the OSToy app in the left menu click on “Autoscaling” to access this portion of the workshop.</p>
 
-<p><img src="/media/managedlab/32-hpa-menu.png" alt="HPA Menu" /></p>
+<p><img src="media/managedlab/32-hpa-menu.png" alt="HPA Menu" /></p>
 
 <p>As was in the networking section you will see the total number of pods available for the microservice by counting the number of colored boxes.  In this case we have only one.  This can be verified through the web UI or from the CLI.</p>
 
 <p>You can use the following command to see the running microservice pods only:
 <code class="language-plaintext highlighter-rouge">oc get pods --field-selector=status.phase=Running | grep microservice</code></p>
 
-<p><img src="/media/managedlab/33-hpa-mainpage.png" alt="HPA Main" /></p>
+<p><img src="media/managedlab/33-hpa-mainpage.png" alt="HPA Main" /></p>
 
 <h4 id="3-increase-the-load">3. Increase the load</h4>
 

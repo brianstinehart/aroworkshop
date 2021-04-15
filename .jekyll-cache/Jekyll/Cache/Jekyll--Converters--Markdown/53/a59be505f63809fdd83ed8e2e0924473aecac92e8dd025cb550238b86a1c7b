@@ -1,0 +1,51 @@
+I"w<h3 id="resources">Resources</h3>
+
+<ul>
+  <li>The source code for this app is available here: <a href="https://github.com/openshift-cs/ostoy">https://github.com/openshift-cs/ostoy</a></li>
+  <li>OSToy front-end container image: <a href="https://quay.io/aroworkshop/ostoy-frontend">https://quay.io/aroworkshop/ostoy-frontend</a></li>
+  <li>OSToy microservice container image: <a href="https://quay.io/aroworkshop/ostoy-microservice">https://quay.io/aroworkshop/ostoy-microservice</a></li>
+  <li>Deployment Definition YAMLs:
+    <ul>
+      <li><a href="/yaml/ostoy-fe-deployment.yaml">ostoy-fe-deployment.yaml</a></li>
+      <li><a href="/yaml/ostoy-microservice-deployment.yaml">ostoy-microservice-deployment.yaml</a></li>
+    </ul>
+  </li>
+</ul>
+
+<blockquote>
+  <p><strong>Note</strong> In order to simplify the deployment of the app (which you will do next) we have included all the objects needed in the above YAMLs as “all-in-one” YAMLs.  In reality though, an enterprise would most likely want to have a different yaml file for each Kubernetes object.</p>
+</blockquote>
+
+<h3 id="about-ostoy">About OSToy</h3>
+
+<p>OSToy is a simple Node.js application that we will deploy to Azure Red Hat OpenShift. It is used to help us explore the functionality of Kubernetes. This application has a user interface which you can:</p>
+
+<ul>
+  <li>write messages to the log (stdout / stderr)</li>
+  <li>intentionally crash the application to view self-healing</li>
+  <li>toggle a liveliness probe and monitor OpenShift behavior</li>
+  <li>read config maps, secrets, and env variables</li>
+  <li>if connected to shared storage, read and write files</li>
+  <li>check network connectivity, intra-cluster DNS, and intra-communication with an included microservice</li>
+</ul>
+
+<h3 id="ostoy-application-diagram">OSToy Application Diagram</h3>
+
+<p><img src="media/managedlab/4-ostoy-arch.png" alt="OSToy Diagram" /></p>
+
+<h3 id="familiarization-with-the-application-ui">Familiarization with the Application UI</h3>
+
+<ol>
+  <li>Shows the pod name that served your browser the page.</li>
+  <li><strong>Home:</strong> The main page of the application where you can perform some of the functions listed which we will explore.</li>
+  <li><strong>Persistent Storage:</strong>  Allows us to write data to the persistent volume bound to this application.</li>
+  <li><strong>Config Maps:</strong>  Shows the contents of configmaps available to the application and the key:value pairs.</li>
+  <li><strong>Secrets:</strong> Shows the contents of secrets available to the application and the key:value pairs.</li>
+  <li><strong>ENV Variables:</strong> Shows the environment variables available to the application.</li>
+  <li><strong>Networking:</strong> Tools to illustrate networking within the application.</li>
+  <li>Shows some more information about the application.</li>
+</ol>
+
+<p><img src="media/managedlab/10-ostoy-homepage-1.png" alt="Home Page" /></p>
+
+:ET
