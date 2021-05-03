@@ -286,7 +286,7 @@
 <p>You will need a personal GitHub account for today’s workshop. If you don’t already have one, you can sign up for free <a href="https://github.com/join">here</a>.</p>
 
 <h4 id="ssh-client">SSH Client</h4>
-<p>You will also need a client to SSH into a jumphost for command line access. Linux and Mac systems tend to have one included, and one of the most popular clients for Windows is PuTTY that you can download <a href="https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html">here</a>.</p>
+<p>You will also need a client to SSH into a jumphost for command line access. Linux and Mac systems tend to have one included, and one of the more popular clients for Windows is PuTTY that you can download <a href="https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html">here</a>. More recently, Windows 10 offers OpenSSH that can be <a href="https://docs.microsoft.com/en-us/windows-server/administration/openssh/openssh_install_firstuse">installed as an optional feature</a>.</p>
 
 <h4 id="lab-setup">Lab Setup</h4>
 <p>Along with the web interface, we will be running commands directly against our cluster using a jump host. The SSH client mentioned above will be used to establish an SSH session to that jump host, and the diagram below provides a visual of how this hangs together.</p>
@@ -402,7 +402,7 @@
 
 <p>An OpenShift <code class="language-plaintext highlighter-rouge">Route</code> exposes a service at a host name, like www.example.com, so that external clients can reach it by name. When a <code class="language-plaintext highlighter-rouge">Route</code> object is created on OpenShift, it gets picked up by the built-in HAProxy load balancer in order to expose the requested service and make it externally available with the given configuration. You might be familiar with the Kubernetes <code class="language-plaintext highlighter-rouge">Ingress</code> object and might already be asking “what’s the difference?”. Red Hat created the concept of <code class="language-plaintext highlighter-rouge">Route</code> in order to fill this need and then contributed the design principles behind this to the community; which heavily influenced the <code class="language-plaintext highlighter-rouge">Ingress</code> design.  Though a <code class="language-plaintext highlighter-rouge">Route</code> does have some additional features as can be seen in the chart below.</p>
 
-<p><img src="/media/managedlab/routes-vs-ingress.png" alt="routes vs ingress" /></p>
+<p><img src="media/managedlab/routes-vs-ingress.png" alt="routes vs ingress" /></p>
 
 <blockquote>
   <p><strong>NOTE:</strong> DNS resolution for a host name is handled separately from routing; your administrator may have configured a cloud domain that will always correctly resolve to the router, or if using an unrelated host name you may need to modify its DNS records independently to resolve to the router.</p>
@@ -491,7 +491,7 @@ ImageStream and Builds: <a href="https://cloudowski.com/articles/why-managing-co
     </tr>
     <tr>
       <td>A public facing web frontend <code class="language-plaintext highlighter-rouge">rating-web</code></td>
-      <td><a href="https://github.com/microsoft/rating-web">GitHub repo</a></td>
+      <td><a href="https://github.com/adriangigante/rating-web">GitHub repo</a></td>
     </tr>
     <tr>
       <td>A MongoDB with pre-loaded data</td>
@@ -1107,6 +1107,8 @@ ImageStream and Builds: <a href="https://cloudowski.com/articles/why-managing-co
     <!-- Begin parsedText -->
     
 <p>As before, the fastest way in through the web console navigating to <strong>Builds -&gt; Build Configs</strong> and selecting <strong>rating-web</strong>, then using the copy option for the GitHub webhook URL near the bottom of the page. You’ll once again use this copied URL to setup the webhook on your GitHub repository.</p>
+
+<p><img src="media/rating-web-github-webhook-url-console.png" alt="Rating Web GitHub webhook URL" /></p>
 
 <p>The process at the command line is also the same as before. Retrieve the GitHub webhook trigger secret you’ll need need in the GitHub webhook URL using the command below:</p>
 

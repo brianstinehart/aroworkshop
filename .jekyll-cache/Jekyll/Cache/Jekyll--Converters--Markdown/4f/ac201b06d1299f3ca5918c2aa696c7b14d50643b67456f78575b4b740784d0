@@ -1,0 +1,44 @@
+I"�<h3 id="access-your-azure-red-hat-openshift-cluster">Access your Azure Red Hat OpenShift Cluster</h3>
+
+<p>We’ll start by getting into our cluster.</p>
+
+<h2 id="connect-to-the-cluster">Connect to the cluster</h2>
+
+<p>The cluster web console’s URL will be listed as part of the lab Instructions provided by the instructor.</p>
+
+<!-- Begin collapsible container div -->
+<div class="collapsible-content-container">
+  <!-- Begin collapsible container button -->
+  <button class="toggle-collapsible">Toggle</button>
+  <!-- Begin collapsible container content div -->
+  <div class="collapsible-content">
+    <!-- Begin parsedText -->
+    
+<blockquote>
+  <p><strong>Note</strong> Be sure to logout of any Microsoft accounts prior to accessing the login screens or you will not be given the option to login with the account we provide.</p>
+</blockquote>
+
+<p>Using console URL link provided, you will be directed to the login page. Select the <strong>RHPDS-AAD</strong> option.</p>
+
+<p><img src="media/aro-loginpage.png" alt="ARO Login Page" /></p>
+
+<p>You will be forwarded to a Microsoft login screen - select <strong>Use another account</strong> if you have other Microsoft account listed - where you will use the login details provided.</p>
+
+<p><img src="media/aro-loginpageMS1.png" alt="Microsoft Login Page" /> <img src="media/aro-loginpageMS2.png" alt="Microsoft User Login Page" /> <img src="media/aro-loginpageMS3.png" alt="Microsoft Password Login Page" /></p>
+
+<p>From here you will be taken to the OpenShift web console landing page.</p>
+
+<blockquote>
+  <p><strong>Note</strong> Some browsers may take you back to the initial OpenShift login screen where you will need select the RHPDS-AAD icon once more.</p>
+</blockquote>
+
+<p><img src="media/aro-landing.png" alt="ARO Landing Page" /></p>
+
+
+    <!-- End parsedText -->
+  </div>
+  <!-- End collapsible container content div -->
+</div>
+<!-- End collapsible container div -->
+
+:ET

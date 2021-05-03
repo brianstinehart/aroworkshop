@@ -1,0 +1,35 @@
+I"�<p>You will be deploying a ratings application on Azure Red Hat OpenShift.</p>
+
+<p><img src="media/app-overview.png" alt="Application diagram" /></p>
+
+<p>The application consists of 3 components:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Link</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>A public facing API <code class="language-plaintext highlighter-rouge">rating-api</code></td>
+      <td><a href="https://github.com/microsoft/rating-api">GitHub repo</a></td>
+    </tr>
+    <tr>
+      <td>A public facing web frontend <code class="language-plaintext highlighter-rouge">rating-web</code></td>
+      <td><a href="https://github.com/adriangigante/rating-web">GitHub repo</a></td>
+    </tr>
+    <tr>
+      <td>A MongoDB with pre-loaded data</td>
+      <td><a href="https://github.com/microsoft/rating-api/raw/master/data.tar.gz">Data</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Once you’re done, you’ll have an experience similar to the below.</p>
+
+<p><img src="media/app-overview-1.png" alt="Application" />
+<img src="media/app-overview-2.png" alt="Application" />
+<img src="media/app-overview-3.png" alt="Application" /></p>
+:ET

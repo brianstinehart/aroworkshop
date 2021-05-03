@@ -1,0 +1,10 @@
+I"N
+<p>You can navigate to the logs of the <code class="language-plaintext highlighter-rouge">rating-api</code> deployment by going <strong>Workloads -&gt; Pods</strong> and selecting the  <strong>rating-api</strong> pod that is currently <strong>running</strong>,</p>
+
+<p><img src="media/rating-api-navigate.png" alt="Navigate to verify mongoDB connection" /></p>
+
+<p>If you move to the <strong>Logs</strong> tab, you should see a log message confirming the code can successfully connect to the MongoDB.</p>
+
+<p><img src="media/rating-api-working.png" alt="Verify mongoDB connection" /></p>
+
+:ET

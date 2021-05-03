@@ -1,0 +1,111 @@
+I"�<h3 id="create-mongodb-from-template">Create MongoDB from template</h3>
+
+<!-- Begin collapsible container div -->
+<div class="collapsible-content-container">
+  <!-- Begin collapsible container button -->
+  <button class="toggle-collapsible">Toggle</button>
+  <!-- Begin collapsible container content div -->
+  <div class="collapsible-content">
+    <!-- Begin parsedText -->
+    
+<p>Azure Red Hat OpenShift provides many container images and templates to make creating new applications &amp; services easy. The template provides parameter fields to define all the mandatory environment variables (user, password, database name, etc) with predefined defaults including auto-generation of password values. It will also define both a deployment configuration and a service.</p>
+
+<p>For this exercise we will use the following template:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">mongodb-persistent</code> uses a persistent volume store for the database data which means the data will survive a pod restart. Using persistent volumes requires a persistent volume pool be defined in the Azure Red Hat OpenShift deployment.</li>
+</ul>
+
+<blockquote>
+  <p><strong>Hint</strong> You can retrieve a list of templates using the command below. The templates are preinstalled in the <code class="language-plaintext highlighter-rouge">openshift</code> namespace.</p>
+  <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>oc get templates <span class="nt">-n</span> openshift
+</code></pre></div>  </div>
+</blockquote>
+
+<p>Create a MongoDB deployment using the <code class="language-plaintext highlighter-rouge">mongodb-persistent</code> template. You’re passing in the values to be replaced (username, password and database) which generates a YAML/JSON file. You then pipe it to the <code class="language-plaintext highlighter-rouge">oc create</code> command.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>oc process openshift//mongodb-persistent <span class="se">\</span>
+    <span class="nt">-p</span> <span class="nv">MONGODB_USER</span><span class="o">=</span>ratingsuser <span class="se">\</span>
+    <span class="nt">-p</span> <span class="nv">MONGODB_PASSWORD</span><span class="o">=</span>ratingspassword <span class="se">\</span>
+    <span class="nt">-p</span> <span class="nv">MONGODB_DATABASE</span><span class="o">=</span>ratingsdb <span class="se">\</span>
+    <span class="nt">-p</span> <span class="nv">MONGODB_ADMIN_PASSWORD</span><span class="o">=</span>ratingspassword | oc create <span class="nt">-f</span> -
+</code></pre></div></div>
+
+<p>This is what you should see in your console:</p>
+
+<p><img src="media/oc-mongodb.png" alt="oc MongoDB" /></p>
+
+<p>If you now head back to the web console and make sure you are in the <strong>workshop&lt;student#&gt;</strong> project, you should see a new entry for MongoDB.</p>
+
+<p><img src="media/mongodb-overview.png" alt="MongoDB deployment" /></p>
+
+
+    <!-- End parsedText -->
+  </div>
+  <!-- End collapsible container content div -->
+</div>
+<!-- End collapsible container div -->
+
+<h3 id="verify-if-the-mongodb-pod-was-created-successfully">Verify if the MongoDB pod was created successfully</h3>
+
+<!-- Begin collapsible container div -->
+<div class="collapsible-content-container">
+  <!-- Begin collapsible container button -->
+  <button class="toggle-collapsible">Toggle</button>
+  <!-- Begin collapsible container content div -->
+  <div class="collapsible-content">
+    <!-- Begin parsedText -->
+    
+<p>Run the <code class="language-plaintext highlighter-rouge">oc get all</code> command to view the status of the new application and verify if the deployment of the MongoDB template was successful.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>oc get all
+</code></pre></div></div>
+
+<p><img src="media/oc-status-mongodb.png" alt="oc get all" /></p>
+
+
+    <!-- End parsedText -->
+  </div>
+  <!-- End collapsible container content div -->
+</div>
+<!-- End collapsible container div -->
+
+<h3 id="retrieve-mongodb-service-hostname">Retrieve MongoDB service hostname</h3>
+
+<!-- Begin collapsible container div -->
+<div class="collapsible-content-container">
+  <!-- Begin collapsible container button -->
+  <button class="toggle-collapsible">Toggle</button>
+  <!-- Begin collapsible container content div -->
+  <div class="collapsible-content">
+    <!-- Begin parsedText -->
+    
+<p>Find the MongoDB service.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>oc get svc mongodb
+</code></pre></div></div>
+
+<p><img src="media/oc-get-svc-mongo.png" alt="oc get svc" /></p>
+
+<p>The service will be accessible at the following DNS name: <code class="language-plaintext highlighter-rouge">mongodb.workshop&lt;student#&gt;.svc.cluster.local</code> which is formed of <code class="language-plaintext highlighter-rouge">[service name].[project name].svc.cluster.local</code>. This resolves only within the cluster.</p>
+
+<p>You can also retrieve this from the web console by toggling to the <strong>Administrator</strong> view, then navigating to <strong>Networking -&gt; Services</strong> and selecting the mongodb service. You’ll need this hostname to configure the <code class="language-plaintext highlighter-rouge">rating-api</code>.</p>
+
+<p><img src="media/mongo-svc-webconsole.png" alt="MongoDB service in the Web Console" /></p>
+
+
+    <!-- End parsedText -->
+  </div>
+  <!-- End collapsible container content div -->
+</div>
+<!-- End collapsible container div -->
+
+<blockquote>
+  <p><strong>Resources</strong></p>
+  <ul>
+    <li><a href="https://docs.openshift.com/aro/using_images/db_images/mongodb.html">ARO Documentation - MongoDB</a></li>
+    <li><a href="https://docs.openshift.com/aro/using_images/db_images/mongodb.html#running-mongodb-commands-in-containers">ARO Documentation - Running MongoDB Commands…</a></li>
+    <li><a href="https://docs.openshift.com/aro/dev_guide/templates.html">ARO Documentation - Templates</a></li>
+  </ul>
+</blockquote>
+:ET

@@ -1,0 +1,48 @@
+I"
+<p>Assuming you can access the application via the Route provided and are still logged into the CLI (please go back to part 2 if you need to do any of those) we’ll start to use this application.  As stated earlier, this application will allow you to “push the buttons” of OpenShift and see how it works.  We will do this to test the logs.</p>
+
+<p>Click on the <em>Home</em> menu item and then click in the message box for “Log Message (stdout)” and write any message you want to output to the <em>stdout</em> stream.  You can try “<strong>All is well!</strong>”.  Then click “Send Message”.</p>
+
+<p><img src="media/managedlab/8-ostoy-stdout.png" alt="Logging stdout" /></p>
+
+<p>Click in the message box for “Log Message (stderr)” and write any message you want to output to the <em>stderr</em> stream. You can try “<strong>Oh no! Error!</strong>”.  Then click “Send Message”.</p>
+
+<p><img src="media/managedlab/9-ostoy-stderr.png" alt="Logging stderr" /></p>
+
+<h3 id="view-logs-directly-from-the-pod">View logs directly from the pod</h3>
+
+<!-- Begin collapsible container div -->
+<div class="collapsible-content-container">
+  <!-- Begin collapsible container button -->
+  <button class="toggle-collapsible">Toggle</button>
+  <!-- Begin collapsible container content div -->
+  <div class="collapsible-content">
+    <!-- Begin parsedText -->
+    
+<p>Go to the CLI and enter the following command to retrieve the name of your frontend pod which we will use to view the pod logs:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>oc get pods <span class="nt">-o</span> name
+pod/ostoy-frontend-679cb85695-5cn7x
+pod/ostoy-microservice-86b4c6f559-p594d
+</code></pre></div></div>
+
+<p>So the pod name in this case is <strong>ostoy-frontend-679cb85695-5cn7x</strong>.  Then run <code class="language-plaintext highlighter-rouge">oc logs ostoy-frontend-679cb85695-5cn7x</code> and you should see your messages:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>oc logs ostoy-frontend-679cb85695-5cn7x
+<span class="o">[</span>...]
+ostoy-frontend-679cb85695-5cn7x: server starting on port 8080
+Redirecting to /home
+stdout: All is well!
+stderr: Oh no! Error!
+</code></pre></div></div>
+
+<p>You should see both the <em>stdout</em> and <em>stderr</em> messages.</p>
+
+
+    <!-- End parsedText -->
+  </div>
+  <!-- End collapsible container content div -->
+</div>
+<!-- End collapsible container div -->
+
+:ET

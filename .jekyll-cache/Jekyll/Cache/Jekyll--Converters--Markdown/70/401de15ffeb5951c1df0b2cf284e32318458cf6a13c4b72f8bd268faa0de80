@@ -1,0 +1,11 @@
+I"¨
+<p>A project allows a community of users to organize and manage their content in isolation from other communities. To create a new project we run the <code class="language-plaintext highlighter-rouge">oc new-project</code> command followed by the name of the project we would like to create.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>oc new-project workshop&lt;student#&gt;
+</code></pre></div></div>
+
+<p>For example, if you are student 15, the command would be <code class="language-plaintext highlighter-rouge">oc new-project workshop15</code></p>
+
+<p><img src="media/oc-newproject.png" alt="Create new project" /></p>
+
+:ET

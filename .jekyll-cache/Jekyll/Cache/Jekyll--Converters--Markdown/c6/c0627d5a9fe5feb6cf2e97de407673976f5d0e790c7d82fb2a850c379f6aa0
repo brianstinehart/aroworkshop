@@ -1,0 +1,34 @@
+I"N
+
+<p>Azure Red Hat OpenShift provides many container images and templates to make creating new applications &amp; services easy. The template provides parameter fields to define all the mandatory environment variables (user, password, database name, etc) with predefined defaults including auto-generation of password values. It will also define both a deployment configuration and a service.</p>
+
+<p>For this exercise we will use the following template:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">mongodb-persistent</code> uses a persistent volume store for the database data which means the data will survive a pod restart. Using persistent volumes requires a persistent volume pool be defined in the Azure Red Hat OpenShift deployment.</li>
+</ul>
+
+<blockquote>
+  <p><strong>Hint</strong> You can retrieve a list of templates using the command below. The templates are preinstalled in the <code class="language-plaintext highlighter-rouge">openshift</code> namespace.</p>
+  <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>oc get templates <span class="nt">-n</span> openshift
+</code></pre></div>  </div>
+</blockquote>
+
+<p>Create a MongoDB deployment using the <code class="language-plaintext highlighter-rouge">mongodb-persistent</code> template. You’re passing in the values to be replaced (username, password and database) which generates a YAML/JSON file. You then pipe it to the <code class="language-plaintext highlighter-rouge">oc create</code> command.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>oc process openshift//mongodb-persistent <span class="se">\</span>
+    <span class="nt">-p</span> <span class="nv">MONGODB_USER</span><span class="o">=</span>ratingsuser <span class="se">\</span>
+    <span class="nt">-p</span> <span class="nv">MONGODB_PASSWORD</span><span class="o">=</span>ratingspassword <span class="se">\</span>
+    <span class="nt">-p</span> <span class="nv">MONGODB_DATABASE</span><span class="o">=</span>ratingsdb <span class="se">\</span>
+    <span class="nt">-p</span> <span class="nv">MONGODB_ADMIN_PASSWORD</span><span class="o">=</span>ratingspassword | oc create <span class="nt">-f</span> -
+</code></pre></div></div>
+
+<p>This is what you should see in your console:</p>
+
+<p><img src="media/oc-mongodb.png" alt="oc MongoDB" /></p>
+
+<p>If you now head back to the web console and make sure you are in the <strong>workshop&lt;student#&gt;</strong> project, you should see a new entry for MongoDB.</p>
+
+<p><img src="media/mongodb-overview.png" alt="MongoDB deployment" /></p>
+
+:ET

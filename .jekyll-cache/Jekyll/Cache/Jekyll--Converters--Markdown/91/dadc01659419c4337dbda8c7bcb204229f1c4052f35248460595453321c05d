@@ -1,0 +1,26 @@
+I"A
+<p>You will create a policy that applies to any pod matching the <code class="language-plaintext highlighter-rouge">app=rating-api</code> label. The policy will allow ingress only from pods matching the <code class="language-plaintext highlighter-rouge">app=rating-web</code> label.</p>
+
+<p>Use the YAML below in the editor, and make sure you’re targeting your project by changing the <strong>namespace</strong> to <strong>workshop&lt;student#&gt;</strong>.</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">apiVersion</span><span class="pi">:</span> <span class="s">networking.k8s.io/v1</span>
+<span class="na">kind</span><span class="pi">:</span> <span class="s">NetworkPolicy</span>
+<span class="na">metadata</span><span class="pi">:</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">api-allow-from-web</span>
+  <span class="na">namespace</span><span class="pi">:</span> <span class="s">workshop&lt;student#&gt;</span>
+<span class="na">spec</span><span class="pi">:</span>
+  <span class="na">podSelector</span><span class="pi">:</span>
+    <span class="na">matchLabels</span><span class="pi">:</span>
+      <span class="na">app</span><span class="pi">:</span> <span class="s">rating-api</span>
+  <span class="na">ingress</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="na">from</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="na">podSelector</span><span class="pi">:</span>
+            <span class="na">matchLabels</span><span class="pi">:</span>
+              <span class="na">app</span><span class="pi">:</span> <span class="s">rating-web</span>
+</code></pre></div></div>
+
+<p>Click <strong>Create</strong>.</p>
+
+<p><img src="media/create-networkpolicy.png" alt="Create network policy" /></p>
+
+:ET
