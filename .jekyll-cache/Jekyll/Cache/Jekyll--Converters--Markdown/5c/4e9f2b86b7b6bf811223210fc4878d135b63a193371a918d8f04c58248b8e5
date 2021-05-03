@@ -1,14 +1,0 @@
-I"
-<p>Click on <em>Config Maps</em> in the left menu.</p>
-
-<p>This will display the contents of the configmap available to the OSToy application.  We defined this in the <code class="language-plaintext highlighter-rouge">ostoy-fe-deployment.yaml</code> here:</p>
-
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kind: ConfigMap
-apiVersion: v1
-metadata:
-  name: ostoy-configmap-files
-data:
-  config.json:  <span class="s1">'{ "default": "123" }'</span>
-</code></pre></div></div>
-
-:ET

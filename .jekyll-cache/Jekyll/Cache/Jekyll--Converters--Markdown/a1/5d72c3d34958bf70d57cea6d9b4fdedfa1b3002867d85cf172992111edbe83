@@ -1,9 +1,0 @@
-I"•
-<p>Run the <code class="language-plaintext highlighter-rouge">oc get all</code> command to view the status of the new application and verify if the deployment of the MongoDB template was successful.</p>
-
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>oc get all
-</code></pre></div></div>
-
-<p><img src="media/oc-status-mongodb.png" alt="oc get all" /></p>
-
-:ET

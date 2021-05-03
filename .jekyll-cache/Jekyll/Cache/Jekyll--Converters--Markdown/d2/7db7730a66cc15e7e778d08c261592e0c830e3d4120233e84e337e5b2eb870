@@ -1,9 +1,0 @@
-I"L
-<p>We’ll now deploy the <code class="language-plaintext highlighter-rouge">rating-web</code> app. <strong>Don’t miss the entry in the following command where we need you to add your GitHub username</strong>.</p>
-
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>oc new-app https://github.com/&lt;your GitHub username&gt;/rating-web <span class="nt">--strategy</span><span class="o">=</span><span class="nb">source</span>
-</code></pre></div></div>
-
-<p><img src="media/oc-newapp-ratingweb.png" alt="Create rating-web using oc cli" /></p>
-
-:ET

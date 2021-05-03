@@ -1,9 +1,0 @@
-I"½
-<p>Create the <code class="language-plaintext highlighter-rouge">API</code> environment variable for <code class="language-plaintext highlighter-rouge">rating-web</code> Deployment. The value of this variable is going to be the hostname/port of the <code class="language-plaintext highlighter-rouge">rating-api</code> service.</p>
-
-<p>Instead of setting the environment variable through the web console, weâ€™ll set it through the OpenShift CLI.</p>
-
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>oc <span class="nb">set env </span>deploy/rating-web <span class="nv">API</span><span class="o">=</span>http://rating-api:8080
-</code></pre></div></div>
-
-:ET
